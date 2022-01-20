@@ -10,6 +10,6 @@ namespace Fietsbaas.Models
         public int Points { get; set; }
         public Role Role { get; set; }
 
-        public List<Team> Teams { get; set; }
+        public virtual ICollection<Team> Teams { get; set; }
     }
 }

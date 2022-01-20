@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Fietsbaas.Models;
+using Microsoft.EntityFrameworkCore;
 using Xamarin.Forms;
 
 namespace Fietsbaas.ViewModels
@@ -17,11 +18,7 @@ namespace Fietsbaas.ViewModels
 
         protected override async Task OnRefreshAsync()
         {
-            Items = new ObservableCollection<Race>()
-            {
-                new Race() { StartDate = new DateTime(2022, 6, 1), Name = "Tour de France" },
-                new Race() { StartDate = new DateTime(2022, 2, 14), Name = "28th Valley of the Sun Stage Race" },
-            };
+            Items = new ObservableCollection<Race>( await Db.Races.ToListAsync() );
         }
 
         protected override async Task OnAddItemAsync()

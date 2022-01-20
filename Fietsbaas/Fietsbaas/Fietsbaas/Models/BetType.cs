@@ -6,5 +6,6 @@
         SecondPlace,
         ThirdPlace,
         FourthPlace,
+        WinsAnyRace
     }
 }

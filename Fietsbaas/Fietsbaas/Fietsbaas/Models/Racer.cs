@@ -2,9 +2,12 @@
 {
     public class Racer : BaseModel
     {
-        public Race Race { get; set; }
-        public Cyclist Cyclist { get; set; }
+        public int RaceId { get; set; }
+        public int CyclistId { get; set; }
         public RacerStatus Status { get; set; }
         public int? Position { get; set; }
+
+        public virtual Race Race { get; set; }
+        public virtual Cyclist Cyclist { get; set; }
     }
 }

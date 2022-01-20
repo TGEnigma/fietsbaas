@@ -2,7 +2,9 @@
 {
     public class Stage : BaseModel
     {
-        public Race Race { get; set; }
+        public int RaceId { get; set; }
         public string Name { get; set; }
+
+        public virtual Race Race { get; set; }
     }
 }

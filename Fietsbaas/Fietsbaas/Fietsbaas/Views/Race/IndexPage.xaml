@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<view:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fietsbaas.Views.Race.IndexPage"
              Title="{Binding Title}"
              xmlns:local="clr-namespace:Fietsbaas.ViewModels"  
              xmlns:model="clr-namespace:Fietsbaas.Models"  
+             xmlns:view="clr-namespace:Fietsbaas.Views"
              x:DataType="local:RaceIndexViewModel">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
+        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" ClassId="admin"/>
     </ContentPage.ToolbarItems>
     <!--
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
@@ -41,4 +42,4 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
     </RefreshView>
-</ContentPage>
+</view:BasePage>

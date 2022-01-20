@@ -11,6 +11,7 @@ namespace Fietsbaas.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public FietsbaasDbContext Db => DependencyService.Get<FietsbaasDbContext>();
 
         bool isBusy = false;
         public bool IsRefreshing
@@ -37,6 +38,10 @@ namespace Fietsbaas.ViewModels
             onChanged?.Invoke();
             OnPropertyChanged( propertyName );
             return true;
+        }
+
+        public virtual void OnAppearing()
+        {
         }
 
         #region INotifyPropertyChanged

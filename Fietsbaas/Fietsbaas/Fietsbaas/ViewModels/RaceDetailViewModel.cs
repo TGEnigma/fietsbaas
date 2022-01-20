@@ -1,32 +1,41 @@
-﻿using System;
+﻿using Fietsbaas.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using Xamarin.Forms;
 
 namespace Fietsbaas.ViewModels
 {
-    [QueryProperty( nameof( Id ), nameof( Id ) )]
-    public class RaceDetailViewModel : BaseViewModel
+    public class RaceDetailViewModel : BaseDetailViewModel
     {
-        private int id;
+        private string name;
+        private string description;
 
-        public int Id 
+        public string Name 
         { 
-            get => id; 
-            set
-            {
-                SetProperty( ref id, value );
-                Load();
-            }
+            get => name; 
+            set => SetProperty( ref name, value ); 
         }
 
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string Description
+        { 
+            get => description; 
+            set => SetProperty( ref description, value );
+        }
 
-        private void Load()
+        public RaceDetailViewModel()
         {
-            Name = "Tour de France";
-            Description = "Description here";
+        }
+
+        protected override void OnLoad( int id )
+        {
+            var race = Db.Races.Find( id );
+            if ( race != null )
+            {
+                Name = race.Name;
+                Description = race.Description;
+            }
         }
     }
 }

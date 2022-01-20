@@ -8,13 +8,14 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using Fietsbaas.ViewModels;
+using Fietsbaas.Models;
 
 namespace Fietsbaas.Views.Race
 {
     [XamlCompilation( XamlCompilationOptions.Compile )]
-    public partial class IndexPage : ContentPage
+    public partial class IndexPage : BasePage
     {
-        private RaceIndexViewModel _vm;
+        private readonly RaceIndexViewModel _vm;
 
         public IndexPage()
         {
