@@ -8,72 +8,29 @@ using Xamarin.Forms;
 
 namespace Fietsbaas.ViewModels
 {
-    public class RaceIndexViewModel : BaseViewModel
+    public class RaceIndexViewModel : BaseListViewModel<Race>
     {
-        private Race _selectedItem;
-
-        public ObservableCollection<Race> Items { get; set; }
-        public Command RefreshCommand { get; }
-        public Command AddItemCommand { get; }
-        public Command<Race> ItemTapped { get; }
-
-        public Race SelectedItem
-        {
-            get => _selectedItem;
-            set
-            {
-                SetProperty( ref _selectedItem, value );
-                OnItemSelected( value );
-            }
-        }
-
         public RaceIndexViewModel()
         {
             Title = "Browse";
-            Items = new ObservableCollection<Race>();
-            RefreshCommand = new Command( async () => await OnRefresh() );
-            ItemTapped = new Command<Race>( OnItemSelected );
-            AddItemCommand = new Command( OnAddItem );
         }
 
-        async Task OnRefresh()
+        protected override async Task OnRefreshAsync()
         {
-            IsRefreshing = true;
-
-            try
+            Items = new ObservableCollection<Race>()
             {
-                Items = new ObservableCollection<Race>()
-                {
-                    new Race() { StartDate = new DateTime(2022, 6, 1), Name = "Tour de France" },
-                    new Race() { StartDate = new DateTime(2022, 2, 14), Name = "28th Valley of the Sun Stage Race" },
-                };
-            }
-            catch ( Exception ex )
-            {
-                Debug.WriteLine( ex );
-            }
-            finally
-            {
-                IsRefreshing = false;
-            }
+                new Race() { StartDate = new DateTime(2022, 6, 1), Name = "Tour de France" },
+                new Race() { StartDate = new DateTime(2022, 2, 14), Name = "28th Valley of the Sun Stage Race" },
+            };
         }
 
-        public void OnAppearing()
-        {
-            IsRefreshing = true;
-            SelectedItem = null;
-        }
-
-        private async void OnAddItem( object obj )
+        protected override async Task OnAddItemAsync()
         {
             await Shell.Current.GoToAsync( "race/create" );
         }
 
-        async void OnItemSelected( Race item )
+        protected override async Task OnItemSelectedAsync( Race item )
         {
-            if ( item == null )
-                return;
-
             await Shell.Current.GoToAsync( $"race/detail?id={item.Id}" );
         }
     }
