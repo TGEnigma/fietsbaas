@@ -30,7 +30,7 @@ namespace Fietsbaas.ViewModels
 
         async Task ExecuteLoadItemsCommand()
         {
-            IsBusy = true;
+            IsRefreshing = true;
 
             try
             {
@@ -47,13 +47,13 @@ namespace Fietsbaas.ViewModels
             }
             finally
             {
-                IsBusy = false;
+                IsRefreshing = false;
             }
         }
 
         public void OnAppearing()
         {
-            IsBusy = true;
+            IsRefreshing = true;
             SelectedItem = null;
         }
 

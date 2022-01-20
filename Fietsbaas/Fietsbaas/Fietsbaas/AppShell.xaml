@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:local="clr-namespace:Fietsbaas.Views"
+       xmlns:views="clr-namespace:Fietsbaas.Views"
+       xmlns:raceviews="clr-namespace:Fietsbaas.Views.Race"
+       xmlns:stageviews="clr-namespace:Fietsbaas.Views.Stage"
+       xmlns:cyclistviews="clr-namespace:Fietsbaas.Views.Cyclist"
        Title="Fietsbaas"
        x:Class="Fietsbaas.AppShell">
 
@@ -78,11 +81,20 @@
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
-    <FlyoutItem Title="About" Icon="icon_about.png">
-        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+    <FlyoutItem Title="Home" Icon="icon_feed.png">
+        <ShellContent ContentTemplate="{DataTemplate views:IndexPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Browse" Icon="icon_feed.png">
-        <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
+    <FlyoutItem Title="Races" Icon="icon_feed.png">
+        <ShellContent ContentTemplate="{DataTemplate raceviews:IndexPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Cyclists" Icon="icon_feed.png">
+        <ShellContent ContentTemplate="{DataTemplate cyclistviews:IndexPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Leaderboard" Icon="icon_feed.png">
+        <ShellContent ContentTemplate="{DataTemplate views:LeaderboardPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Profile" Icon="icon_feed.png">
+        <ShellContent ContentTemplate="{DataTemplate views:ProfilePage}" />
     </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
@@ -96,9 +108,9 @@
         content you can do so by calling 
         await Shell.Current.GoToAsync("//LoginPage");
     -->
-    <TabBar>
-        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
-    </TabBar>
+    <!--<TabBar>
+        <ShellContent Route="login" ContentTemplate="{DataTemplate local:LoginPage}" />
+    </TabBar>-->
 
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.
@@ -115,9 +127,9 @@
     // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#define-flyoutitem-appearance
     <Shell.ItemTemplate>
         <DataTemplate>
-            <ContentView>
+            <ContentPage>
                 Bindable Properties: Title, Icon
-            </ContentView>
+            </ContentPage>
         </DataTemplate>
     </Shell.ItemTemplate>
 
@@ -125,9 +137,9 @@
     // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#define-menuitem-appearance
     <Shell.MenuItemTemplate>
         <DataTemplate>
-            <ContentView>
+            <ContentPage>
                 Bindable Properties: Text, Icon
-            </ContentView>
+            </ContentPage>
         </DataTemplate>
     </Shell.MenuItemTemplate>
 

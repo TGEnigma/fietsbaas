@@ -13,7 +13,7 @@ namespace Fietsbaas.ViewModels
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
 
         bool isBusy = false;
-        public bool IsBusy
+        public bool IsRefreshing
         {
             get { return isBusy; }
             set { SetProperty( ref isBusy, value ); }
