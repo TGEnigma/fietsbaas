@@ -42,7 +42,6 @@ namespace Fietsbaas.Models
                 var adminUser = new User()
                 {
                     Email = "admin@mail.com",
-                    Name = "Admin",
                     Password = "admin",
                     Points = 0,
                     Role = Role.Admin,
@@ -52,7 +51,6 @@ namespace Fietsbaas.Models
                 var testUser = new User()
                 {
                     Email = "user@mail.com",
-                    Name = "User",
                     Password = "user",
                     Points = 0,
                     Role = Role.User,

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fietsbaas.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,15 +38,28 @@ namespace Fietsbaas.ViewModels
             RegisterCommand = new Command( OnRegisterClicked );
         }
 
-        private void OnRegisterClicked( object obj )
+        private async void OnRegisterClicked( object obj )
         {
             var user = Db.Users.Where( x => x.Email.ToLower() == email.ToLower() )
                 .FirstOrDefault();
+
             if ( user != null )
             {
-                Shell.Current.DisplayAlert( "Error", "User with email already exists", "OK" );
+                await Shell.Current.DisplayAlert( "Error", "User with email already exists", "OK" );
                 return;
             }
+
+            user = new User()
+            {
+                Email = email,
+                Password = password,
+                Points = 0,
+                Role = Role.User
+            };
+            Db.Users.Add( user );
+            await Db.SaveChangesAsync();
+
+            await Shell.Current.GoToAsync( "login" );
         }
     }
 }
