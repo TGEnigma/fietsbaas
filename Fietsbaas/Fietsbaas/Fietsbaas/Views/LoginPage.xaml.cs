@@ -17,5 +17,10 @@ namespace Fietsbaas.Views
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
         }
+
+        private void Button_Clicked( object sender, EventArgs e )
+        {
+
+        }
     }
 }

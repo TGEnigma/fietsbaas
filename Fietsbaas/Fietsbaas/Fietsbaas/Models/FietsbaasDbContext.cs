@@ -141,7 +141,7 @@ namespace Fietsbaas.Models
                     Race = race1,
                     Status = RacerStatus.Finished,
                 };
-                context.Racers.Add( racer1 );
+                context.Racers.Add( racer2 );
                 context.SaveChanges();
 
                 // Create teams

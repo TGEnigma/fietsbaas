@@ -1,13 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:Fietsbaas.ViewModels"
              x:Class="Fietsbaas.Views.RegistrationPage"
+             x:DataType="viewmodel:RegistrationViewModel"
              Title="Sign up">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Entry Placeholder="Email" Text="{Binding Email}"></Entry>
+            <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="True"></Entry>
+            <Entry Placeholder="PasswordCheck" Text="{Binding PasswordValidation}" IsPassword="True"></Entry>
+            <Button Text="Register" Command="{Binding RegisterCommand}"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

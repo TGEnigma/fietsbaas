@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fietsbaas.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Fietsbaas.Views
         public RegistrationPage()
         {
             InitializeComponent();
+            BindingContext = new RegistrationViewModel();
         }
     }
 }

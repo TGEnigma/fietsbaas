@@ -3,13 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodel="clr-namespace:Fietsbaas.ViewModels"
              mc:Ignorable="d"
              x:Class="Fietsbaas.Views.LoginPage"
+             x:DataType="viewmodel:LoginViewModel"
              Shell.NavBarIsVisible="False"
              Title="Login">
     <ContentPage.Content>
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
             <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
+            <Button VerticalOptions="Center" Text="Register" Command="{Binding RegisterCommand}"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
