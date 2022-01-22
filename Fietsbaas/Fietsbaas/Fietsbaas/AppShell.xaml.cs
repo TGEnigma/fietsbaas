@@ -11,13 +11,30 @@ namespace Fietsbaas
 {
     public partial class AppShell : Xamarin.Forms.Shell
     {
+        /// <summary>
+        /// Defines the routes that must not be globally accessible.
+        /// </summary>
+        public static string[] InternalRoutes = new[]
+        {
+            "index"
+        };
+
         public AppShell()
         {
             InitializeComponent();
             Routing.RegisterRoute( nameof( ItemDetailPage ), typeof( ItemDetailPage ) );
             Routing.RegisterRoute( nameof( NewItemPage ), typeof( NewItemPage ) );
             RegisterRoutes();
-            CurrentItem = loginPage;
+
+            if ( App.SkipLogin )
+            {
+                App.Login( "admin@mail.com", "admin" );
+                CurrentItem = indexPage;
+            }
+            else
+            {
+                CurrentItem = loginPage;
+            }
         }
 
         /// <summary>
@@ -43,6 +60,9 @@ namespace Fietsbaas
                     routeName = routeName.Replace( "Page", "" );
 
                 routeName = routeName.ToLower();
+                if ( InternalRoutes.Contains( routeName ) )
+                    continue;
+
                 Routing.RegisterRoute( routeName, viewType );
                 Debug.WriteLine( $"Route '{routeName}' -> {viewType}" );
             }

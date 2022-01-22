@@ -5,6 +5,10 @@
              x:Class="Fietsbaas.Views.Race.DetailPage"
              x:DataType="vm:RaceDetailViewModel"
              Title="Race detail">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Team" Command="{Binding TeamCommand}"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <StackLayout>
             <Label Text="{Binding Name}"></Label>

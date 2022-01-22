@@ -38,7 +38,7 @@ namespace Fietsbaas.ViewModels
         {
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
             App.Login(LoginEmail, LoginPassword);
-            await Shell.Current.GoToAsync( $"index" );
+            await Shell.Current.GoToAsync( $"//index" );
         }
 
         private async void OnRegisterClicked()

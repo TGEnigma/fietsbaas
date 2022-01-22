@@ -59,7 +59,7 @@ namespace Fietsbaas.ViewModels
             Db.Users.Add( user );
             await Db.SaveChangesAsync();
 
-            await Shell.Current.GoToAsync( "login" );
+            await Shell.Current.GoToAsync( "//login" );
         }
     }
 }

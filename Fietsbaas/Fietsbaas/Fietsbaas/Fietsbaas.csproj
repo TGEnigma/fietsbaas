@@ -32,9 +32,6 @@
     <Compile Update="Views\Stage\IndexPage.xaml.cs">
       <DependentUpon>IndexPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Race\TeamPage.xaml.cs">
-      <DependentUpon>TeamPage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
@@ -77,10 +74,10 @@
     <EmbeddedResource Update="Views\Race\CreatePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Stage\BetPage.xaml">
+    <EmbeddedResource Update="Views\Race\Team\IndexPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Race\TeamPage.xaml">
+    <EmbeddedResource Update="Views\Stage\BetPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\RegistrationPage.xaml">
