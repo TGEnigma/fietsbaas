@@ -17,9 +17,9 @@ namespace Fietsbaas.Views
             InitializeComponent();
         }
 
-        private void BacktoLoginButton_Clicked(object sender, EventArgs e)
+        private async void BacktoLoginButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new LoginPage());
+           await Navigation.PushAsync(new LoginPage());
         }
     }
 }
