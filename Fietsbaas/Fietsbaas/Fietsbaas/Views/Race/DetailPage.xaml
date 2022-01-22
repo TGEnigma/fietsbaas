@@ -11,4 +11,20 @@
             <Label Text="{Binding Description}"></Label>
         </StackLayout>
     </ContentPage.Content>
+    <RefreshView>
+        <CollectionView x:Name="ItemListView"
+                        ItemsSource="{Binding Stages}"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10">
+                        <Label Text="{Binding StageName}"
+                               LineBreakMode="NoWrap"
+                               Style="{DynamicResource ListItemTextStyle}"
+                               FontSize="16"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
 </ContentPage>
