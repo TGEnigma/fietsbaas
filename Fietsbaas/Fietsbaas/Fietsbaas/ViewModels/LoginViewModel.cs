@@ -11,6 +11,23 @@ namespace Fietsbaas.ViewModels
         public Command LoginCommand { get; }
         public Command RegisterCommand { get; }
 
+        private string loginemail;
+
+        private string loginpassword;
+
+        public string LoginEmail
+        {
+            get => loginemail;
+            set => SetProperty(ref loginemail, value);
+        }
+
+        public string LoginPassword
+        {
+            get =>  loginpassword;
+            set => SetProperty(ref loginpassword, value);
+        }
+
+
         public LoginViewModel()
         {
             LoginCommand = new Command( OnLoginClicked );
@@ -20,7 +37,8 @@ namespace Fietsbaas.ViewModels
         private async void OnLoginClicked( object obj )
         {
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            await Shell.Current.GoToAsync( $"//{nameof( AboutPage )}" );
+            App.Login(LoginEmail, LoginPassword);
+            await Shell.Current.GoToAsync( $"index" );
         }
 
         private async void OnRegisterClicked()

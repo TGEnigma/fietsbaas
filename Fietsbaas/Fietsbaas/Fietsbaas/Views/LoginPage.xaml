@@ -11,8 +11,11 @@
              Title="Login">
     <ContentPage.Content>
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+            <Entry Placeholder="Email" Text="{Binding LoginEmail}"></Entry>
+            <Entry Placeholder="Password" Text="{Binding LoginPassword}" IsPassword="True"></Entry>
             <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
             <Button VerticalOptions="Center" Text="Register" Command="{Binding RegisterCommand}"></Button>
+            <Button VerticalOptions="Center" Text="Forgot Password" Command="{Binding F}"
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
