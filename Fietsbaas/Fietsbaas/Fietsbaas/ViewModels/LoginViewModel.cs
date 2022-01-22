@@ -10,6 +10,7 @@ namespace Fietsbaas.ViewModels
     {
         public Command LoginCommand { get; }
         public Command RegisterCommand { get; }
+        public Command ForgotPasswordCommand { get; }
 
         private string loginemail;
 
@@ -23,27 +24,38 @@ namespace Fietsbaas.ViewModels
 
         public string LoginPassword
         {
-            get =>  loginpassword;
+            get => loginpassword;
             set => SetProperty(ref loginpassword, value);
         }
 
 
         public LoginViewModel()
         {
-            LoginCommand = new Command( OnLoginClicked );
-            RegisterCommand = new Command( OnRegisterClicked );
+            LoginCommand = new Command(OnLoginClicked);
+            RegisterCommand = new Command(OnRegisterClicked);
+            ForgotPasswordCommand = new Command(OnForgotPasswordClicked);
         }
 
-        private async void OnLoginClicked( object obj )
+        private async void OnLoginClicked(object obj)
         {
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
             App.Login(LoginEmail, LoginPassword);
-            await Shell.Current.GoToAsync( $"index" );
+            await Shell.Current.GoToAsync($"index");
         }
 
         private async void OnRegisterClicked()
         {
-            await Shell.Current.GoToAsync( "registration" );
+            await Shell.Current.GoToAsync("registration");
         }
+
+        private async void OnForgotPasswordClicked()
+        {
+            await Shell.Current.GoToAsync("forgotpassword");
+        }
+        
+
+
+
+
     }
 }
