@@ -11,6 +11,7 @@ namespace Fietsbaas
     public partial class App : Application
     {
         public static User User { get; private set; }
+        public static bool SkipLogin { get; set; } = true;
 
         public App()
         {
@@ -19,7 +20,6 @@ namespace Fietsbaas
             DependencyService.Register<MockDataStore>();
             DependencyService.Register<FietsbaasDbContext>();
             FietsbaasDbContext.DropAndSeed();
-            Login( "admin@mail.com", "admin" );
             MainPage = new AppShell();
         }
 

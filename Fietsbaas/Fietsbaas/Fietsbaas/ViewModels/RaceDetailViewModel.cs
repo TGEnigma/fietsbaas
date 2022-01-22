@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Fietsbaas.ViewModels
@@ -11,6 +13,8 @@ namespace Fietsbaas.ViewModels
     {
         private string name;
         private string description;
+        private string stageName; 
+        private ObservableCollection<Stage> stages;
 
         public string Name 
         { 
@@ -24,8 +28,29 @@ namespace Fietsbaas.ViewModels
             set => SetProperty( ref description, value );
         }
 
+        public string StageName
+        {
+            get => stageName;
+            set => SetProperty( ref stageName, value );
+        }
+
+        public ObservableCollection<Stage> Stages
+        {
+            get => stages;
+            set => SetProperty( ref stages, value );
+        }
+
+        public Command TeamCommand { get; set; }
+
         public RaceDetailViewModel()
         {
+            Title = "Stages";
+            TeamCommand = new Command( ExecuteTeamCommand );
+        }
+
+        private async void ExecuteTeamCommand( object obj )
+        {
+            await Shell.Current.GoToAsync( $"race/team/index?raceid={Id}" );
         }
 
         protected override void OnLoad( int id )
@@ -35,6 +60,7 @@ namespace Fietsbaas.ViewModels
             {
                 Name = race.Name;
                 Description = race.Description;
+                stages = new ObservableCollection<Stage>(Db.Stages.Where(x => x.RaceId == id ));
             }
         }
     }
