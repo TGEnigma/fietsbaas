@@ -34,14 +34,23 @@ namespace Fietsbaas.ViewModels
             set => SetProperty( ref stageName, value );
         }
 
+        public ObservableCollection<Stage> Stages
+        {
+            get => stages;
+            set => SetProperty( ref stages, value );
+        }
+
+        public Command TeamCommand { get; set; }
+
         public RaceDetailViewModel()
         {
             Title = "Stages";
+            TeamCommand = new Command( ExecuteTeamCommand );
         }
-        public ObservableCollection<Stage> Stages
+
+        private async void ExecuteTeamCommand( object obj )
         {
-            get => stages; 
-            set => SetProperty( ref stages, value );
+            await Shell.Current.GoToAsync( $"race/team/index?raceid={Id}" );
         }
 
         protected override void OnLoad( int id )
