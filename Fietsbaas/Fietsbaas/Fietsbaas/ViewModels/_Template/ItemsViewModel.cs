@@ -51,7 +51,7 @@ namespace Fietsbaas.ViewModels
             }
         }
 
-        public override void OnAppearing()
+        public override void Refresh()
         {
             IsRefreshing = true;
             SelectedItem = null;

@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Fietsbaas.Views.Race.Team
+namespace Fietsbaas.Views.Race.Stage
 {
     [XamlCompilation( XamlCompilationOptions.Compile )]
-    public partial class IndexPage : ContentPage
+    public partial class DetailPage : ContentPage
     {
-        private TeamIndexViewModel vm;
+        private readonly StageDetailViewModel vm;
 
-        public IndexPage()
+        public DetailPage()
         {
             InitializeComponent();
-            BindingContext = vm = new TeamIndexViewModel();
+            BindingContext = vm = new StageDetailViewModel();
         }
 
         protected override void OnAppearing()

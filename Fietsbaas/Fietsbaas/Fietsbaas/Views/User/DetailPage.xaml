@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Fietsbaas.Models"
+             xmlns:viewmodels="clr-namespace:Fietsbaas.ViewModels"
+             x:Class="Fietsbaas.Views.ProfilePage"
+             x:DataType="viewmodels:ProfileViewModel"
+             Title="Your user profile">
+  <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="10,20,10,0" HorizontalOptions="Center" >
+                <StackLayout Orientation="Horizontal" Spacing="50">
+                    <Label HorizontalOptions="Start" Text="Email"></Label>
+                    <Label HorizontalOptions="End" Text="{Binding Email}" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="50">
+                    <Label Text="Points"></Label>
+                    <Label Text="{Binding Points}" />
+                </StackLayout>
+
+            </StackLayout>
+            <StackLayout Padding="10" >
+                <Button Text="Reset email" Command="{Binding ResetEmailCommand}"></Button>
+                <Button Text="Reset password" Command="{Binding ResetPasswordCommand}"></Button>
+                <Button Text="Delete user data" Command="{Binding DeleteCommand}"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

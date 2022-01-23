@@ -134,12 +134,31 @@ namespace Fietsbaas.Models
 
                 var racer2 = new Racer()
                 {
-                    Cyclist = cyclist1,
+                    Cyclist = cyclist2,
                     Position = 1,
                     Race = race1,
                     Status = RacerStatus.Finished,
                 };
                 context.Racers.Add( racer2 );
+
+                var racer3 = new Racer()
+                {
+                    Cyclist = cyclist1,
+                    Position = null,
+                    Race = race2,
+                    Status = RacerStatus.Active,
+                };
+                context.Racers.Add( racer3 );
+
+                var racer4 = new Racer()
+                {
+                    Cyclist = cyclist2,
+                    Position = 1,
+                    Race = race2,
+                    Status = RacerStatus.Finished,
+                };
+                context.Racers.Add( racer4 );
+
                 context.SaveChanges();
 
                 // Create teams
@@ -158,6 +177,23 @@ namespace Fietsbaas.Models
                     }
                 };
                 context.Teams.Add( team1 );
+
+                var team2 = new Team()
+                {
+                    User = adminUser,
+                    Race = race2,
+                    Racers = new[]
+                    {
+                        new TeamRacer()
+                        {
+                            IsReserve = false,
+                            Racer = racer1,
+                            Bet = BetType.WinsAnyRace,
+                        }
+                    }
+                };
+                context.Teams.Add( team2 );
+
                 context.SaveChanges();
             }
         }

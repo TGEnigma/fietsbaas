@@ -5,16 +5,19 @@
              xmlns:model="clr-namespace:Fietsbaas.Models"
              x:Class="Fietsbaas.Views.Race.DetailPage"
              x:DataType="vm:RaceDetailViewModel"
-             Title="Race detail">
+             Title="Race details">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Team" Command="{Binding TeamCommand}"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding Name}"></Label>
-            <Label Text="{Binding Description}"></Label>
-            <RefreshView x:DataType="vm:RaceDetailViewModel" Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}">
+        <StackLayout Padding="10,20,10,0" VerticalOptions="Center">
+            <StackLayout HorizontalOptions="Center" Orientation="Vertical">
+                <Label Text="{Binding Name}"></Label>
+                <Label Text="{Binding Description}"></Label>
+            </StackLayout>
+            <Label Text="Stages" HorizontalOptions="Center" FontSize="Subtitle" Padding="0,20,0,0" FontAttributes="Bold"></Label>
+            <RefreshView Padding="20" x:DataType="vm:RaceDetailViewModel" Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}">
                 <CollectionView x:Name="ItemListView"
                         ItemsSource="{Binding Stages}"
                         SelectionMode="None">
@@ -25,7 +28,13 @@
                                LineBreakMode="NoWrap"
                                Style="{DynamicResource ListItemTextStyle}"
                                FontSize="16"/>
-                                <Label Text="blabla"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                        NumberOfTapsRequired="1"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type vm:RaceDetailViewModel}}, Path=ItemTapped}"		
+                                        CommandParameter="{Binding .}">
+                                    </TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
                             </StackLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

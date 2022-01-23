@@ -6,7 +6,8 @@
        xmlns:stageviews="clr-namespace:Fietsbaas.Views.Stage"
        xmlns:cyclistviews="clr-namespace:Fietsbaas.Views.Cyclist"
        Title="Fietsbaas"
-       x:Class="Fietsbaas.AppShell">
+       x:Class="Fietsbaas.AppShell"
+       FlyoutBackgroundColor="{StaticResource Secondary}">
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
@@ -28,7 +29,8 @@
                 <Setter Property="Shell.TabBarTitleColor" Value="White"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
-            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}">
+            </Style>
 
             <!--
             Default Styles for all Flyout Items
@@ -44,7 +46,7 @@
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
                                     <Setter Property="BackgroundColor" Value="{x:OnPlatform UWP=Transparent, iOS=White}" />
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="White" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Selected">

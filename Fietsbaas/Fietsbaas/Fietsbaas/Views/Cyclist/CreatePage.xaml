@@ -5,7 +5,7 @@
              Title="Add new cyclist">
   <ContentPage.Content>
       <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
+            <Label Text="Admin only cyclist create page" />
       </StackLayout>
   </ContentPage.Content>
 </ContentPage>

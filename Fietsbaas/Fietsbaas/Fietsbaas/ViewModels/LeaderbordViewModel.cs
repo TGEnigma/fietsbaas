@@ -11,14 +11,14 @@ namespace Fietsbaas.ViewModels
 {
     public class LeaderbordViewModel : BaseListViewModel<User>
     {
-        protected override Task OnAddItemAsync()
+        protected override async Task OnAddItemAsync()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
-        protected override Task OnItemSelectedAsync(User item)
+        protected override async Task OnItemSelectedAsync(User item)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         protected override async Task OnRefreshAsync()

@@ -23,7 +23,7 @@ namespace Fietsbaas.Views.Race
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            _vm.OnAppearing();
+            _vm.Refresh();
         }
     }
 }

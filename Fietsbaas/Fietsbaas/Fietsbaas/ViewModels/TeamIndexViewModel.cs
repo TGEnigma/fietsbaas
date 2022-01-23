@@ -21,21 +21,32 @@ namespace Fietsbaas.ViewModels
             set => SetProperty( ref raceId, value );
         }
 
+        public IReadOnlyList<string> BetTypes = new string[]
+        {
+            "In top 4",
+            "First",
+            "Second",
+            "Third",
+            "Fourth"
+        };
+
         protected override async Task OnAddItemAsync()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         protected override async Task OnItemSelectedAsync( TeamRacerViewModel item )
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         protected override async Task OnRefreshAsync()
         {
             var team = await Db.Teams
-                .Where( x => x.UserId == App.User.Id && x.RaceId == raceId )
+                .Where( x => /*x.UserId == App.User.Id && */x.RaceId == raceId )
                 .Include( x => x.Racers )
+                .ThenInclude( x => x.Racer )
+                .ThenInclude( x => x.Cyclist )
                 .FirstOrDefaultAsync();
 
             if ( team != null )
@@ -43,9 +54,7 @@ namespace Fietsbaas.ViewModels
                 Items = new ObservableCollection<TeamRacerViewModel>(
                     team.Racers
                     .AsQueryable()
-                    .Include( x => x.Racer )
-                    .Include( x => x.Racer.Cyclist )
-                    .Select( x => new TeamRacerViewModel( x.Id, x.Racer.Cyclist.Name ) )
+                    .Select( x => new TeamRacerViewModel( x.Id, x.Racer.Cyclist.Name ) {  BetTypes = BetTypes, Bet = BetTypes[0] } )
                 );
             }
         }
@@ -56,9 +65,14 @@ namespace Fietsbaas.ViewModels
         public int Id { get; set; }
         public string Name { get; set; }
         public Command BetCommand { get; set; }
+        public bool IsSelected { get; set; }
+        public string Bet { get; set; }
+        public IReadOnlyList<string> BetTypes { get; set; }
 
         public TeamRacerViewModel( int id, string name )
         {
+            Id = id;
+            Name = name;
             BetCommand = new Command( OnBetPressed );
         }
 
