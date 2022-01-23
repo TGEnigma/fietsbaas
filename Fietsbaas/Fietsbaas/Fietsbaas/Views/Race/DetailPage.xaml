@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Fietsbaas.ViewModels"
+             xmlns:model="clr-namespace:Fietsbaas.Models"
              x:Class="Fietsbaas.Views.Race.DetailPage"
              x:DataType="vm:RaceDetailViewModel"
              Title="Race detail">
@@ -18,9 +19,9 @@
                         ItemsSource="{Binding Stages}"
                         SelectionMode="None">
                     <CollectionView.ItemTemplate>
-                        <DataTemplate>
+                        <DataTemplate x:DataType="model:Stage">
                             <StackLayout Padding="10">
-                                <Label Text="{Binding StageName}"
+                                <Label Text="{Binding Name}"
                                LineBreakMode="NoWrap"
                                Style="{DynamicResource ListItemTextStyle}"
                                FontSize="16"/>
