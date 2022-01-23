@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Fietsbaas.ViewModels"
+             xmlns:model="clr-namespace:Fietsbaas.Models"
              x:Class="Fietsbaas.Views.Race.DetailPage"
              x:DataType="vm:RaceDetailViewModel"
              Title="Race detail">
@@ -13,22 +14,23 @@
         <StackLayout>
             <Label Text="{Binding Name}"></Label>
             <Label Text="{Binding Description}"></Label>
-        </StackLayout>
-    </ContentPage.Content>
-    <RefreshView>
-        <CollectionView x:Name="ItemListView"
+            <RefreshView x:DataType="vm:RaceDetailViewModel" Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}">
+                <CollectionView x:Name="ItemListView"
                         ItemsSource="{Binding Stages}"
                         SelectionMode="None">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Padding="10">
-                        <Label Text="{Binding StageName}"
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Stage">
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Name}"
                                LineBreakMode="NoWrap"
                                Style="{DynamicResource ListItemTextStyle}"
                                FontSize="16"/>
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </RefreshView>
+                                <Label Text="blabla"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

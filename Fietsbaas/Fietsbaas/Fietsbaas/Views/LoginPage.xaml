@@ -11,7 +11,12 @@
              Title="Login">
     <ContentPage.Content>
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-            <Label Text="Fietsbaaas"/>
+
+            <Frame BackgroundColor="DodgerBlue" Padding="24" CornerRadius="0">
+                <Label Text="Fiets Baas" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            </Frame>
+
+
             <Entry Placeholder="Email" Text="{Binding LoginEmail}"></Entry>
             <Entry Placeholder="Password" Text="{Binding LoginPassword}" IsPassword="True"></Entry>
             <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
