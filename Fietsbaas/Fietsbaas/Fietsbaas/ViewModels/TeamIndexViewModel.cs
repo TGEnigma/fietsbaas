@@ -21,14 +21,23 @@ namespace Fietsbaas.ViewModels
             set => SetProperty( ref raceId, value );
         }
 
+        public IReadOnlyList<string> BetTypes = new string[]
+        {
+            "In top 4",
+            "First",
+            "Second",
+            "Third",
+            "Fourth"
+        };
+
         protected override async Task OnAddItemAsync()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         protected override async Task OnItemSelectedAsync( TeamRacerViewModel item )
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         protected override async Task OnRefreshAsync()
@@ -45,7 +54,7 @@ namespace Fietsbaas.ViewModels
                 Items = new ObservableCollection<TeamRacerViewModel>(
                     team.Racers
                     .AsQueryable()
-                    .Select( x => new TeamRacerViewModel( x.Id, x.Racer.Cyclist.Name ) )
+                    .Select( x => new TeamRacerViewModel( x.Id, x.Racer.Cyclist.Name ) {  BetTypes = BetTypes, Bet = BetTypes[0] } )
                 );
             }
         }
@@ -56,6 +65,9 @@ namespace Fietsbaas.ViewModels
         public int Id { get; set; }
         public string Name { get; set; }
         public Command BetCommand { get; set; }
+        public bool IsSelected { get; set; }
+        public string Bet { get; set; }
+        public IReadOnlyList<string> BetTypes { get; set; }
 
         public TeamRacerViewModel( int id, string name )
         {

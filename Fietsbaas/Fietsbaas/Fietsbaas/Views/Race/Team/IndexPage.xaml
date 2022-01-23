@@ -6,28 +6,75 @@
              x:DataType="viewmodels:TeamIndexViewModel">
     <ContentPage.Content>
         <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}">
-            <CollectionView x:Name="ItemsListView"
+            <!--<CollectionView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
                 SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Padding="10" x:DataType="viewmodels:TeamRacerViewModel">
+                        <StackLayout Padding="10" x:DataType="viewmodels:TeamRacerViewModel" Orientation="Horizontal">
                             <Label Text="{Binding Name}" 
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="16" />
+                            <CheckBox IsChecked="{Binding IsSelected}"></CheckBox>
                             <Button Text="Bet" Command="{Binding BetCommand}"></Button>
-                            <!--<StackLayout.GestureRecognizers>
+                            --><!--<StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer 
                                 NumberOfTapsRequired="1"
                                 Command="{Binding Source={RelativeSource AncestorType={x:Type local:TeamIndexViewModel}}, Path=ItemTapped}"		
                                 CommandParameter="{Binding .}">l
                                 </TapGestureRecognizer>
-                            </StackLayout.GestureRecognizers>-->
+                            </StackLayout.GestureRecognizers>--><!--
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-            </CollectionView>
+            </CollectionView>-->
+            <StackLayout Orientation="Vertical">
+                <ListView x:Name="ItemsListView"
+                ItemsSource="{Binding Items}"
+                SelectionMode="None">
+                    <ListView.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition  Width="1*" ></ColumnDefinition>
+                                <ColumnDefinition  Width="1*" ></ColumnDefinition>
+                                <ColumnDefinition Width="1*" ></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Cyclist" HorizontalOptions="Fill"   Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="1"></Label>
+                            <Label Text="Selected" HorizontalOptions="Fill"  Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="1"></Label>
+                            <Label Text="Bet" HorizontalOptions="Fill"  Grid.Column="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="1"></Label>
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="viewmodels:TeamRacerViewModel">
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*" ></ColumnDefinition>
+                                        <ColumnDefinition Width="1*" ></ColumnDefinition>
+                                        <ColumnDefinition Width="1*" ></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="1" Text="{Binding Name}" 
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                                    <CheckBox Grid.Column="1" Margin="1" IsChecked="{Binding IsSelected}"/>
+                                    <Picker Grid.Column="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="1" SelectedItem="{Binding Bet}" 
+                                            ItemsSource="{Binding BetTypes}"/>
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                        NumberOfTapsRequired="1"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:TeamIndexViewModel}}, Path=ItemTapped}"		
+                                        CommandParameter="{Binding .}">
+                                        </TapGestureRecognizer>
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Text="Save"></Button>
+            </StackLayout>
         </RefreshView>
     </ContentPage.Content>
 </ContentPage>

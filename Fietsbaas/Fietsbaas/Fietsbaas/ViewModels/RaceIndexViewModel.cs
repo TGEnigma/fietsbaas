@@ -13,7 +13,7 @@ namespace Fietsbaas.ViewModels
     {
         public RaceIndexViewModel()
         {
-            Title = "Browse";
+            Title = "Browse races";
         }
 
         protected override async Task OnRefreshAsync()

@@ -5,7 +5,7 @@
              xmlns:model="clr-namespace:Fietsbaas.Models"  
              xmlns:view="clr-namespace:Fietsbaas.Views"
              xmlns:local="clr-namespace:Fietsbaas.ViewModels"  
-             Title="Home">
+             Title="Feed">
 
     <ContentPage.Content>
         <StackLayout>

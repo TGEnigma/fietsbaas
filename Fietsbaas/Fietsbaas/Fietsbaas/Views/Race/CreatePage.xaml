@@ -5,7 +5,7 @@
              Title="Add new race">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="race/new"
+            <Label Text="Admin only race creation page"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>

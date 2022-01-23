@@ -8,22 +8,23 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Fietsbaas.Views.Race
+namespace Fietsbaas.Views.Race.Stage
 {
     [XamlCompilation( XamlCompilationOptions.Compile )]
     public partial class DetailPage : ContentPage
     {
-        private readonly RaceDetailViewModel _vm;
+        private readonly StageDetailViewModel vm;
+
         public DetailPage()
         {
             InitializeComponent();
-            BindingContext = _vm = new RaceDetailViewModel();
+            BindingContext = vm = new StageDetailViewModel();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            _vm.Refresh();
+            vm.Refresh();
         }
     }
 }

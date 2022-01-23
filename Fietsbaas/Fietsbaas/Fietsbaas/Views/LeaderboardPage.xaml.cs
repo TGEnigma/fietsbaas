@@ -22,8 +22,7 @@ namespace Fietsbaas.Views
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();
-            _lb.OnAppearing();
+            _lb.Refresh();
             BindingContext = null;
             BindingContext = _lb;
         }

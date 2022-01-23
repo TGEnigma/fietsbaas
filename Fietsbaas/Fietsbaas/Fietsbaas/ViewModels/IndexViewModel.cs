@@ -13,9 +13,9 @@ namespace Fietsbaas.ViewModels
     public class IndexViewModel : BaseListViewModel<Race>
 
     {
-        protected override Task OnAddItemAsync()
+        protected override async Task OnAddItemAsync()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         protected override async Task OnItemSelectedAsync(Race item)

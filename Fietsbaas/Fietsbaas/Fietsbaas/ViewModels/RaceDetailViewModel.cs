@@ -10,13 +10,10 @@ using Xamarin.Forms;
 
 namespace Fietsbaas.ViewModels
 {
-    public class RaceDetailViewModel : BaseDetailViewModel
+    public class StageDetailViewModel : BaseDetailViewModel
     {
-        private int _id;
         private string name;
         private string description;
-        private string stageName; 
-        private ObservableCollection<Stage> stages;
 
         public string Name 
         { 
@@ -30,71 +27,22 @@ namespace Fietsbaas.ViewModels
             set => SetProperty( ref description, value );
         }
 
-        public string StageName
+        public StageDetailViewModel()
         {
-            get => stageName;
-            set => SetProperty( ref stageName, value );
-        }
-
-        public ObservableCollection<Stage> Stages
-        {
-            get => stages;
-            set => SetProperty( ref stages, value );
-        }
-
-        public Command TeamCommand { get; set; }
-        public Command RefreshCommand { get; set; }
-
-        public RaceDetailViewModel()
-        {
-            Title = "Stages";
-            TeamCommand = new Command( ExecuteTeamCommand );
-            RefreshCommand = new Command(async () => await ExecuteRefresh());
-        }
-
-        async Task ExecuteRefresh()
-        {
-            IsRefreshing = true;
-
-            try
-            {
-                await OnRefreshAsync();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                IsRefreshing = false;
-            }
-        }
-
-        async Task OnRefreshAsync()
-        {
-            Stages = new ObservableCollection<Stage>(Db.Stages.Where(x => x.RaceId == Id));
-        }
-
-        private async void ExecuteTeamCommand( object obj )
-        {
-            await Shell.Current.GoToAsync( $"race/team/index?raceid={Id}" );
+            Title = "Stage details";
         }
 
         protected override void OnLoad( int id )
         {
-            var race = Db.Races.Find( id );
-            if ( race != null )
+            var stage = Db.Stages.Find( id );
+            if ( stage != null )
             {
-                Name = race.Name;
-                Description = race.Description;
-                Stages = new ObservableCollection<Stage>(Db.Stages.Where(x => x.RaceId == id ));
+                Name = stage.Name;
             }
         }
-        public override void OnAppearing()
+        public override void Refresh()
         {
-            base.OnAppearing();
-            IsRefreshing = true; 
-            
+            IsRefreshing = true;      
         }
     }
 }
