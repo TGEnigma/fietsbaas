@@ -34,8 +34,10 @@ namespace Fietsbaas.ViewModels
         protected override async Task OnRefreshAsync()
         {
             var team = await Db.Teams
-                .Where( x => x.UserId == App.User.Id && x.RaceId == raceId )
+                .Where( x => /*x.UserId == App.User.Id && */x.RaceId == raceId )
                 .Include( x => x.Racers )
+                .ThenInclude( x => x.Racer )
+                .ThenInclude( x => x.Cyclist )
                 .FirstOrDefaultAsync();
 
             if ( team != null )
@@ -43,8 +45,6 @@ namespace Fietsbaas.ViewModels
                 Items = new ObservableCollection<TeamRacerViewModel>(
                     team.Racers
                     .AsQueryable()
-                    .Include( x => x.Racer )
-                    .Include( x => x.Racer.Cyclist )
                     .Select( x => new TeamRacerViewModel( x.Id, x.Racer.Cyclist.Name ) )
                 );
             }
@@ -59,6 +59,8 @@ namespace Fietsbaas.ViewModels
 
         public TeamRacerViewModel( int id, string name )
         {
+            Id = id;
+            Name = name;
             BetCommand = new Command( OnBetPressed );
         }
 

@@ -40,7 +40,7 @@ namespace Fietsbaas.ViewModels
             return true;
         }
 
-        public virtual void OnAppearing()
+        public virtual void Refresh()
         {
         }
 

@@ -13,16 +13,18 @@ namespace Fietsbaas.Views.Race.Team
     [XamlCompilation( XamlCompilationOptions.Compile )]
     public partial class IndexPage : ContentPage
     {
+        private TeamIndexViewModel vm;
+
         public IndexPage()
         {
             InitializeComponent();
-            BindingContext = new TeamIndexViewModel();
+            BindingContext = vm = new TeamIndexViewModel();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            ( (TeamIndexViewModel)BindingContext ).OnAppearing();
+            vm.Refresh();
         }
     }
 }

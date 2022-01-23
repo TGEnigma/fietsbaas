@@ -10,8 +10,14 @@ namespace Fietsbaas.ViewModels
         where T : class
     {
         private T _selectedItem;
+        private ObservableCollection<T> _items;
 
-        public ObservableCollection<T> Items { get; set; }
+        public ObservableCollection<T> Items
+        {
+            get => _items;
+            set => SetProperty( ref _items, value );
+        }
+
         public Command RefreshCommand { get; }
         public Command AddItemCommand { get; }
         public Command<T> ItemTapped { get; }
@@ -53,7 +59,7 @@ namespace Fietsbaas.ViewModels
             }
         }
 
-        public override void OnAppearing()
+        public override void Refresh()
         {
             IsRefreshing = true;
             SelectedItem = null;
