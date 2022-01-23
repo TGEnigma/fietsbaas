@@ -13,10 +13,17 @@ namespace Fietsbaas.Views.Race
     [XamlCompilation( XamlCompilationOptions.Compile )]
     public partial class DetailPage : ContentPage
     {
+        private readonly RaceDetailViewModel _vm;
         public DetailPage()
         {
             InitializeComponent();
-            BindingContext = new RaceDetailViewModel();
+            BindingContext = _vm = new RaceDetailViewModel();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            _vm.OnAppearing();
         }
     }
 }
