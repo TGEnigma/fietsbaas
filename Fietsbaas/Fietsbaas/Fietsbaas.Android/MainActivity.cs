@@ -13,8 +13,8 @@ namespace Fietsbaas.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            //ff8a00
-            Window?.SetStatusBarColor( Android.Graphics.Color.Argb( 0xff, 0xff, 0x8a, 0x00) );
+            //ff8a00 -> ee4d2e color taskbar
+            Window?.SetStatusBarColor( Android.Graphics.Color.Argb( 0xff, 0xee, 0x4e, 0x2e) );
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
