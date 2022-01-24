@@ -208,14 +208,19 @@ namespace Fietsbaas.Models
             {
                 foreach ( var season in seasons.Stages )
                 {
+                    // Get the schedule of the sport season
                     var schedule = await service.GetSeasonScheduleAsync( season.Id );
-                    if ( schedule == null || season.Scheduled.Year != DateTime.Now.Year ) 
+                    if ( schedule == null || season.Scheduled.Year != DateTime.Now.Year )
+                    {
+                        // Skip unscheduled or past/future seasons
                         continue;
+                    }
 
                     foreach ( var tournament in schedule.Stages )
                     {
                         foreach ( var race in tournament.Stages )
                         {
+                            // Copy race data
                             var dbRace = new Race()
                             {
                                 Name = race.Name,
@@ -244,6 +249,7 @@ namespace Fietsbaas.Models
                             }
                             else
                             {
+                                // Create placeholder stage to show in UI
                                 var dbStage = new Stage()
                                 {
                                     Name = "Stage 1",
