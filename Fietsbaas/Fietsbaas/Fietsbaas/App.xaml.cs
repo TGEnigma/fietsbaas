@@ -19,7 +19,6 @@ namespace Fietsbaas
 
             DependencyService.Register<MockDataStore>();
             DependencyService.Register<FietsbaasDbContext>();
-            FietsbaasDbContext.DropAndSeed();
             MainPage = new AppShell();
         }
 
@@ -35,8 +34,10 @@ namespace Fietsbaas
             }
         }
 
-        protected override void OnStart()
+        protected override async void OnStart()
         {
+            FietsbaasDbContext.DropAndSeed();
+            await FietsbaasDbContext.SeedWithSportradar();
         }
 
         protected override void OnSleep()

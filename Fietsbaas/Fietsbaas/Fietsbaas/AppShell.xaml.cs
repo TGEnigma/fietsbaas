@@ -25,7 +25,10 @@ namespace Fietsbaas
             Routing.RegisterRoute( nameof( ItemDetailPage ), typeof( ItemDetailPage ) );
             Routing.RegisterRoute( nameof( NewItemPage ), typeof( NewItemPage ) );
             RegisterRoutes();
+        }
 
+        protected override void OnAppearing()
+        {
             if ( App.SkipLogin )
             {
                 App.Login( "admin@mail.com", "admin" );
