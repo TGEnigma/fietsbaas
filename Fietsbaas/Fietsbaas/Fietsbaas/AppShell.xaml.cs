@@ -31,7 +31,7 @@ namespace Fietsbaas
         {
             if ( App.SkipLogin )
             {
-                App.Login( "admin@mail.com", "admin" );
+
                 CurrentItem = indexPage;
             }
             else

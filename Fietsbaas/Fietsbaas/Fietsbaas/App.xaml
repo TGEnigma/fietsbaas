@@ -11,7 +11,7 @@
             <Color x:Key="Secondary">#161618</Color>
             <Color x:Key="BackgroundPrimary">#f4f4f4</Color>
             <Color x:Key="BackgroundSecondary">#ededed</Color>
-            
+
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
@@ -31,6 +31,6 @@
                     </VisualStateGroupList>
                 </Setter>
             </Style>
-        </ResourceDictionary>        
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

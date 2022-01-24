@@ -89,9 +89,9 @@
     <FlyoutItem Title="Races" Icon="icon_feed.png">
         <ShellContent ContentTemplate="{DataTemplate raceviews:IndexPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Cyclists" Icon="icon_feed.png">
+    <!--<FlyoutItem Title="Cyclists" Icon="icon_feed.png">
         <ShellContent ContentTemplate="{DataTemplate cyclistviews:IndexPage}" />
-    </FlyoutItem>
+    </FlyoutItem>-->
     <FlyoutItem Title="Leaderboard" Icon="icon_feed.png">
         <ShellContent ContentTemplate="{DataTemplate views:LeaderboardPage}" />
     </FlyoutItem>

@@ -23,12 +23,29 @@ namespace Fietsbaas.ViewModels
 
         public IReadOnlyList<string> BetTypes = new string[]
         {
-            "In top 4",
             "First",
             "Second",
             "Third",
-            "Fourth"
+            "Fourth",
+            "None"
         };
+
+        public Command SaveCommand { get; set; }
+
+        public TeamIndexViewModel()
+        {
+            SaveCommand = new Command( ExecuteSaveCommand );
+        }
+
+        private async void ExecuteSaveCommand( object obj )
+        {
+            var team = await Db.Teams
+                .Where( x => x.UserId == App.User.Id && x.RaceId == raceId )
+                .Include( x => x.Racers )
+                .ThenInclude( x => x.Racer )
+                .ThenInclude( x => x.Cyclist )
+                .FirstOrDefaultAsync();
+        }
 
         protected override async Task OnAddItemAsync()
         {
@@ -42,21 +59,45 @@ namespace Fietsbaas.ViewModels
 
         protected override async Task OnRefreshAsync()
         {
+            var userId = App.User.Id;
             var team = await Db.Teams
-                .Where( x => /*x.UserId == App.User.Id && */x.RaceId == raceId )
+                .Where( x => x.UserId == userId && x.RaceId == raceId )
                 .Include( x => x.Racers )
                 .ThenInclude( x => x.Racer )
                 .ThenInclude( x => x.Cyclist )
                 .FirstOrDefaultAsync();
 
-            if ( team != null )
+            if ( team == null )
             {
-                Items = new ObservableCollection<TeamRacerViewModel>(
-                    team.Racers
-                    .AsQueryable()
-                    .Select( x => new TeamRacerViewModel( x.Id, x.Racer.Cyclist.Name ) {  BetTypes = BetTypes, Bet = BetTypes[0] } )
-                );
+                // Create team
+                team = new Team()
+                {
+                    RaceId = RaceId,
+                    UserId = userId,
+                };
+                Db.Teams.Add( team );
+                await Db.SaveChangesAsync();
             }
+
+
+            Items = new ObservableCollection<TeamRacerViewModel>(
+                Db.Racers
+                .Where( x => x.RaceId == RaceId )
+                .Include( x => x.Cyclist )
+                .ToList()
+                .Join(
+                    team.Racers,
+                    racer => racer.Id,
+                    teamRacer => teamRacer.RacerId,
+                    ( racer, teamRacer ) => new
+                    {
+                        Id = racer.Id,
+                        Name = racer.Cyclist.Name,
+                        Bet = teamRacer != null ? teamRacer.Bet : BetType.WinsAnyRace,
+                        IsSelected = teamRacer != null,
+                    } )
+                .Select( x => new TeamRacerViewModel( x.Id, x.Name, x.Bet, BetTypes, x.IsSelected ) )
+            );
         }
     }
 
@@ -69,11 +110,14 @@ namespace Fietsbaas.ViewModels
         public string Bet { get; set; }
         public IReadOnlyList<string> BetTypes { get; set; }
 
-        public TeamRacerViewModel( int id, string name )
+        public TeamRacerViewModel( int id, string name, BetType bet, IReadOnlyList<string> betTypes, bool isSelected )
         {
             Id = id;
             Name = name;
             BetCommand = new Command( OnBetPressed );
+            Bet = betTypes[ (int)bet ];
+            IsSelected = isSelected;
+            BetTypes = betTypes;
         }
 
         private void OnBetPressed( object obj )

@@ -11,7 +11,7 @@ namespace Fietsbaas
     public partial class App : Application
     {
         public static User User { get; private set; }
-        public static bool SkipLogin { get; set; } = true;
+        public static bool SkipLogin { get; set; } = false;
 
         public App()
         {
@@ -37,7 +37,19 @@ namespace Fietsbaas
         protected override async void OnStart()
         {
             FietsbaasDbContext.DropAndSeed();
-            await FietsbaasDbContext.SeedWithSportradar();
+            var seedTask = FietsbaasDbContext.SeedWithSportradar();
+            var loadingPage = new LoadingPage();
+            await Shell.Current.Navigation.PushModalAsync( loadingPage );
+            await seedTask;
+            loadingPage.SetProgress( 0.5f );
+
+            if ( SkipLogin )
+            {
+                App.Login( "admin@mail.com", "admin" );
+            }
+
+            loadingPage.SetProgress( 1f );
+            await Shell.Current.Navigation.PopModalAsync();
         }
 
         protected override void OnSleep()
