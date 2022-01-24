@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using Fietsbaas.Services.SportRadar;
 using Microsoft.EntityFrameworkCore;
 
 namespace Fietsbaas.Models
@@ -195,6 +197,71 @@ namespace Fietsbaas.Models
                 context.Teams.Add( team2 );
 
                 context.SaveChanges();
+            }
+        }
+
+        internal static async Task SeedWithSportradar()
+        {
+            var service = new SportRadarService();
+            var seasons = await service.GetSeasonsAsync();
+            using ( var context = new FietsbaasDbContext() )
+            {
+                foreach ( var season in seasons.Stages )
+                {
+                    // Get the schedule of the sport season
+                    var schedule = await service.GetSeasonScheduleAsync( season.Id );
+                    if ( schedule == null || season.Scheduled.Year != DateTime.Now.Year )
+                    {
+                        // Skip unscheduled or past/future seasons
+                        continue;
+                    }
+
+                    foreach ( var tournament in schedule.Stages )
+                    {
+                        foreach ( var race in tournament.Stages )
+                        {
+                            // Copy race data
+                            var dbRace = new Race()
+                            {
+                                Name = race.Name,
+                                Description = race.Description,
+                                StartDate = race.Scheduled,
+                                EndDate = race.ScheduledEnd
+                            };
+                            context.Races.Add( dbRace );
+                            await context.SaveChangesAsync();
+
+                            var summary = await service.GetSportEventSummaryAsync( race.Id );
+                            if ( race.Stages.Count > 0 )
+                            {
+                                foreach ( var stage in race.Stages )
+                                {
+                                    var stageSummary = await service.GetStageSummaryAsync( stage.Id );
+                                    var dbStage = new Stage()
+                                    {
+                                        Name = stage.Description,
+                                        RaceId = dbRace.Id,
+                                    };
+
+                                    context.Stages.Add( dbStage );
+                                    await context.SaveChangesAsync();
+                                }
+                            }
+                            else
+                            {
+                                // Create placeholder stage to show in UI
+                                var dbStage = new Stage()
+                                {
+                                    Name = "Stage 1",
+                                    RaceId = dbRace.Id,
+                                };
+
+                                context.Stages.Add( dbStage );
+                                await context.SaveChangesAsync();
+                            }
+                        }
+                    }
+                }
             }
         }
     }
