@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
+
 namespace Fietsbaas.ViewModels
 {
     public class ProfileViewModel : BaseViewModel
     {
         private string email;
         private int points;
+        
 
         public string Email
         {
@@ -31,5 +33,8 @@ namespace Fietsbaas.ViewModels
             Email = App.User.Email;
             Points = App.User.Points;
         }
+
     }
+
+            
 }
