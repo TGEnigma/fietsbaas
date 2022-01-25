@@ -51,7 +51,7 @@ namespace Fietsbaas.ViewModels
             }
             catch ( Exception ex )
             {
-                Debug.WriteLine( ex );
+                HandleException( ex );
             }
             finally
             {
@@ -67,7 +67,14 @@ namespace Fietsbaas.ViewModels
 
         private async void OnAddItem( object obj )
         {
-            await OnAddItemAsync();
+            try
+            {
+                await OnAddItemAsync();
+            }
+            catch ( Exception ex )
+            {
+                HandleException( ex );
+            }
         }
 
         async void OnItemSelected( T item )
@@ -75,7 +82,14 @@ namespace Fietsbaas.ViewModels
             if ( item == null )
                 return;
 
-            await OnItemSelectedAsync( item );
+            try
+            {
+                await OnItemSelectedAsync( item );
+            }
+            catch ( Exception ex )
+            {
+                HandleException( ex );
+            }
         }
 
         protected abstract Task OnItemSelectedAsync( T item );

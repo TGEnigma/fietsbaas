@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 
 namespace Fietsbaas.ViewModels
 {
@@ -42,6 +43,12 @@ namespace Fietsbaas.ViewModels
 
         public virtual void Refresh()
         {
+        }
+
+        protected async void HandleException( Exception e )
+        {
+            //Vibration.Vibrate();
+            await Shell.Current.DisplayAlert( "Error", $"An error occured:\n{e.Message}", "OK" );
         }
 
         #region INotifyPropertyChanged

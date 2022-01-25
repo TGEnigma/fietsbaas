@@ -56,7 +56,14 @@ namespace Fietsbaas.ViewModels
 
         private async void ExecuteItemTamppedCommand( Stage stage )
         {
-            await Shell.Current.GoToAsync( $"race/stage/detail?id={stage.Id}" );
+            try
+            {
+                await Shell.Current.GoToAsync( $"race/stage/detail?id={stage.Id}" );
+            }
+            catch ( Exception ex )
+            {
+                HandleException( ex );
+            }
         }
 
         async Task ExecuteRefresh()
@@ -69,7 +76,7 @@ namespace Fietsbaas.ViewModels
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex);
+                HandleException( ex );
             }
             finally
             {
@@ -84,7 +91,14 @@ namespace Fietsbaas.ViewModels
 
         private async void ExecuteTeamCommand( object obj )
         {
-            await Shell.Current.GoToAsync( $"race/team/index?raceid={Id}" );
+            try
+            {
+                await Shell.Current.GoToAsync( $"race/team/index?raceid={Id}" );
+            }
+            catch ( Exception ex )
+            {
+                HandleException( ex );
+            }
         }
 
         protected override void OnLoad( int id )

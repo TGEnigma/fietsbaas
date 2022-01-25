@@ -10,7 +10,7 @@ namespace Fietsbaas.Services.SportRadar
     {
         protected static readonly string language_code = "en";
         protected static readonly string format = "json";
-        protected static readonly string your_api_key = Encoding.UTF8.GetString( Convert.FromBase64String( "ejZnZnJyODhlN3EzbWRmeWZ3NHI5ZTJt" ) );
+        protected static readonly string your_api_key = Encoding.UTF8.GetString( Convert.FromBase64String( Resources.SportRadarApiKey ) );
 
         protected static async Task<T> GetJsonResponseAsync<T>( string uri ) where T : class
         {

@@ -28,7 +28,14 @@ namespace Fietsbaas.ViewModels
 
         private async void OnForgotPasswordClicked()
         {
-            await Shell.Current.GoToAsync("forgotpasswordconfirmation");
+            try
+            {
+                await Shell.Current.GoToAsync( "forgotpasswordconfirmation" );
+            }
+            catch ( Exception ex )
+            {
+                HandleException( ex );
+            }
         }
 
     }
