@@ -12,7 +12,7 @@ namespace Fietsbaas.ViewModels
     {
         private string email;
         private int points;
-        private ImageSource profilePic = null; 
+        private string profilePic = null; 
 
         public string Email
         {
@@ -25,7 +25,7 @@ namespace Fietsbaas.ViewModels
             get => points;
             set => SetProperty( ref points, value );
         }
-        public ImageSource ProfilePic
+        public string ProfilePic
         {
             get => profilePic; 
             set => SetProperty( ref profilePic, value );
