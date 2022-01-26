@@ -228,6 +228,9 @@ namespace Fietsbaas.Services.SportRadar
 
         [JsonProperty( "teams" )]
         public List<Team> Teams { get; } = new List<Team>();
+
+        [JsonProperty( "race")]
+        public Race Race { get; set; }
     }
 
     public class Race

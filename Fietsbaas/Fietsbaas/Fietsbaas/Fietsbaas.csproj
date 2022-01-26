@@ -6,6 +6,32 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="images\home-icon-selected.png" />
+    <None Remove="images\home-icon.png" />
+    <None Remove="images\leaderboard-icon-selected.png" />
+    <None Remove="images\leaderboard-icon.png" />
+    <None Remove="images\logout-icon-selected.png" />
+    <None Remove="images\logout-icon.png" />
+    <None Remove="images\profile-icon-selected.png" />
+    <None Remove="images\profile-icon.png" />
+    <None Remove="images\race-icon-selected.png" />
+    <None Remove="images\race-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="images\home-icon-selected.png" />
+    <EmbeddedResource Include="images\home-icon.png" />
+    <EmbeddedResource Include="images\leaderboard-icon-selected.png" />
+    <EmbeddedResource Include="images\leaderboard-icon.png" />
+    <EmbeddedResource Include="images\logout-icon-selected.png" />
+    <EmbeddedResource Include="images\logout-icon.png" />
+    <EmbeddedResource Include="images\profile-icon-selected.png" />
+    <EmbeddedResource Include="images\profile-icon.png" />
+    <EmbeddedResource Include="images\race-icon-selected.png" />
+    <EmbeddedResource Include="images\race-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.22" />

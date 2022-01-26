@@ -1,12 +1,13 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Fietsbaas.Services.SportRadar
 {
-    public class SportRadarApi
+    public abstract class SportRadarApi
     {
         protected static readonly string language_code = "en";
         protected static readonly string format = "json";
@@ -19,7 +20,15 @@ namespace Fietsbaas.Services.SportRadar
                 try
                 {
                     var json = await client.GetStringAsync( uri );
-                    return JsonConvert.DeserializeObject<T>( json );
+                    Debug.WriteLine(json);
+                    return JsonConvert.DeserializeObject<T>(json, new JsonSerializerSettings()
+                    {
+                        MissingMemberHandling = MissingMemberHandling.Error
+                    }); ; ;
+                }
+                catch ( HttpRequestException ex )
+                {
+                    return null;
                 }
                 catch ( Exception ex )
                 {

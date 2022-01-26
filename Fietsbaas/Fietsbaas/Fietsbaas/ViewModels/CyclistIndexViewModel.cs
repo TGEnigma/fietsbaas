@@ -6,5 +6,6 @@ namespace Fietsbaas.ViewModels
 {
     internal class CyclistIndexViewModel
     {
+
     }
 }

@@ -218,6 +218,9 @@ namespace Fietsbaas.Models
 
                     foreach ( var tournament in schedule.Stages )
                     {
+                        var tournamentSchedule = await service.GetTournamentScheduleAsync(tournament.Id);
+                        var tournamentInfo = await service.GetTournamentInfoAsync(tournament.Id);
+
                         foreach ( var race in tournament.Stages )
                         {
                             // Copy race data
@@ -232,6 +235,7 @@ namespace Fietsbaas.Models
                             await context.SaveChangesAsync();
 
                             var summary = await service.GetSportEventSummaryAsync( race.Id );
+                            var raceSummary = await service.GetRaceSummaryAsync(race.Id);
                             if ( race.Stages.Count > 0 )
                             {
                                 foreach ( var stage in race.Stages )
