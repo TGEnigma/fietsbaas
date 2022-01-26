@@ -4,6 +4,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using AndroidX.AppCompat.App;
 
 namespace Fietsbaas.Droid
 {
@@ -12,6 +13,8 @@ namespace Fietsbaas.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightNo;
+
             base.OnCreate(savedInstanceState);
             //ff8a00 -> ee4d2e coloror taskbar
             Window?.SetStatusBarColor(Android.Graphics.Color.Argb(0xff, 0xee, 0x4e, 0x2e));

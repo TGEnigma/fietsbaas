@@ -16,7 +16,6 @@ namespace Fietsbaas
         public App()
         {
             InitializeComponent();
-
             DependencyService.Register<MockDataStore>();
             DependencyService.Register<FietsbaasDbContext>();
             MainPage = new AppShell();

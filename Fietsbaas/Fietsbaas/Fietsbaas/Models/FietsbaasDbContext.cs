@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Fietsbaas.Services.SportRadar;
@@ -110,58 +111,36 @@ namespace Fietsbaas.Models
                 context.Stages.Add( stage4 );
                 context.SaveChanges();
 
+                void AddCyclist(string name, params Race[] races)
+                {
+                    // Create cyclists
+                    var cyclist = new Cyclist()
+                    {
+                        Name = name
+                    };
+                    context.Cyclists.Add( cyclist );
+                    context.SaveChanges();
+
+                    // Create racers
+                    foreach ( var race in races )
+                    {
+                        var racer = new Racer()
+                        {
+                            Cyclist = cyclist,
+                            Position = null,
+                            Race = race,
+                            Status = RacerStatus.Active,
+                        };
+
+                        context.Racers.Add( racer );
+                    }
+
+                    context.SaveChanges();
+                }
+
                 // Create cyclists
-                var cyclist1 = new Cyclist()
-                {
-                    Name = "Jan Smit"
-                };
-                context.Cyclists.Add( cyclist1 );
-
-                var cyclist2 = new Cyclist()
-                {
-                    Name = "Bert Jan"
-                };
-                context.Cyclists.Add( cyclist2 );
-                context.SaveChanges();
-
-                // Create racers
-                var racer1 = new Racer()
-                {
-                    Cyclist = cyclist1,
-                    Position = null,
-                    Race = race1,
-                    Status = RacerStatus.Active,
-                };
-                context.Racers.Add( racer1 );
-
-                var racer2 = new Racer()
-                {
-                    Cyclist = cyclist2,
-                    Position = 1,
-                    Race = race1,
-                    Status = RacerStatus.Finished,
-                };
-                context.Racers.Add( racer2 );
-
-                var racer3 = new Racer()
-                {
-                    Cyclist = cyclist1,
-                    Position = null,
-                    Race = race2,
-                    Status = RacerStatus.Active,
-                };
-                context.Racers.Add( racer3 );
-
-                var racer4 = new Racer()
-                {
-                    Cyclist = cyclist2,
-                    Position = 1,
-                    Race = race2,
-                    Status = RacerStatus.Finished,
-                };
-                context.Racers.Add( racer4 );
-
-                context.SaveChanges();
+                AddCyclist( "Jan Smit", race1, race2 );
+                AddCyclist( "Bert Jan", race1, race2 );
 
                 // Create teams
                 var team1 = new Team()
@@ -173,7 +152,7 @@ namespace Fietsbaas.Models
                         new TeamRacer()
                         {
                             IsReserve = false,
-                            Racer = racer1,
+                            Racer = context.Racers.First(),
                             Bet = BetType.WinsAnyRace,
                         }
                     }
@@ -189,7 +168,7 @@ namespace Fietsbaas.Models
                         new TeamRacer()
                         {
                             IsReserve = false,
-                            Racer = racer1,
+                            Racer = context.Racers.First(),
                             Bet = BetType.WinsAnyRace,
                         }
                     }
