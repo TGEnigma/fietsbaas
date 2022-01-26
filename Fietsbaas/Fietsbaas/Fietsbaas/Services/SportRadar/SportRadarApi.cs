@@ -24,7 +24,7 @@ namespace Fietsbaas.Services.SportRadar
                     // Read response from cache if it exists to prevent being rate limited
                     var encodedUri = GetStringHash( uri );
                     var fileName = MakeValidFileName( encodedUri ) + ".json";
-                    var filePath = Path.Combine( Xamarin.Essentials.FileSystem.CacheDirectory, fileName );
+                    var filePath = Path.Combine( System.Environment.GetFolderPath( System.Environment.SpecialFolder.Personal ), fileName );
                     string json;
                     if ( !File.Exists( filePath ) )
                     {
@@ -38,10 +38,10 @@ namespace Fietsbaas.Services.SportRadar
                         json = File.ReadAllText( filePath );
                     }
 
-                    return JsonConvert.DeserializeObject<T>(json, new JsonSerializerSettings()
+                    return JsonConvert.DeserializeObject<T>( json, new JsonSerializerSettings()
                     {
                         MissingMemberHandling = MissingMemberHandling.Error
-                    }); ; ;
+                    } ); ; ;
                 }
                 catch ( HttpRequestException ex )
                 {
