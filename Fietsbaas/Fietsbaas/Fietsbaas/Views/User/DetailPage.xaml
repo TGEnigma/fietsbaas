@@ -8,6 +8,13 @@
              Title="Your user profile">
   <ContentPage.Content>
         <StackLayout>
+            <StackLayout>
+                <Frame Padding="10" CornerRadius="0">
+                    <Label Text="Create new profile picture" HorizontalTextAlignment="Center" TextColor="White" FontSize="30"/>
+                </Frame>
+                <Button Text="New photo" Command="{Binding TakeProfilePicture}"/>
+                <Image Source="{Binding ProfilePic}"/>
+            </StackLayout>
             <StackLayout Padding="10,20,10,0" HorizontalOptions="Center" >
                 <StackLayout Orientation="Horizontal" Spacing="50">
                     <Label HorizontalOptions="Start" Text="Email"></Label>
