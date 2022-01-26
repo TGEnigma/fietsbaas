@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 
@@ -10,7 +12,7 @@ namespace Fietsbaas.ViewModels
     {
         private string email;
         private int points;
-        
+        private ImageSource profilePic = null; 
 
         public string Email
         {
@@ -23,18 +25,34 @@ namespace Fietsbaas.ViewModels
             get => points;
             set => SetProperty( ref points, value );
         }
+        public ImageSource ProfilePic
+        {
+            get => profilePic; 
+            set => SetProperty( ref profilePic, value );
+        }
 
         public Command ResetPasswordCommand { get; set; }
         public Command ResetEmailCommand { get; set; }
         public Command DeleteCommand { get; set; }
+        public Command TakeProfilePicture { get; set; }
 
         public ProfileViewModel()
         {
             Email = App.User.Email;
             Points = App.User.Points;
+            ProfilePic = App.User.ProfilePicture;
+            TakeProfilePicture = new Command( OnTakePictureClicked );
         }
 
-    }
-
-            
+        private async void OnTakePictureClicked(object obj)
+        {
+            var result = await MediaPicker.CapturePhotoAsync(new MediaPickerOptions
+            {
+                Title = "Please pick a photo"
+            });
+            var stream = await result.OpenReadAsync();
+            App.User.ProfilePicture = ProfilePic;
+            ProfilePic = App.User.ProfilePicture;
+        }
+    }     
 }
