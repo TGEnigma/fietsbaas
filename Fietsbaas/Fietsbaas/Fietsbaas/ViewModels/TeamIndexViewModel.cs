@@ -39,12 +39,19 @@ namespace Fietsbaas.ViewModels
 
         private async void ExecuteSaveCommand( object obj )
         {
-            var team = await Db.Teams
-                .Where( x => x.UserId == App.User.Id && x.RaceId == raceId )
-                .Include( x => x.Racers )
-                .ThenInclude( x => x.Racer )
-                .ThenInclude( x => x.Cyclist )
-                .FirstOrDefaultAsync();
+            try
+            {
+                var team = await Db.Teams
+                    .Where( x => x.UserId == App.User.Id && x.RaceId == raceId )
+                    .Include( x => x.Racers )
+                    .ThenInclude( x => x.Racer )
+                    .ThenInclude( x => x.Cyclist )
+                    .FirstOrDefaultAsync();
+            }
+            catch ( Exception ex )
+            {
+                HandleException( ex );
+            }
         }
 
         protected override async Task OnAddItemAsync()

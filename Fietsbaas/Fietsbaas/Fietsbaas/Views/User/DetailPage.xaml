@@ -23,6 +23,8 @@
                 <Button Text="Reset email" Command="{Binding ResetEmailCommand}"></Button>
                 <Button Text="Reset password" Command="{Binding ResetPasswordCommand}"></Button>
                 <Button Text="Delete user data" Command="{Binding DeleteCommand}"></Button>
+                <Button Text="Pick picture from library" x:Name="PickPhoto"></Button>
+                <Image x:Name="image"></Image>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
