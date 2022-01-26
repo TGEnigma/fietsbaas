@@ -47,7 +47,7 @@ namespace Fietsbaas.ViewModels
 
         protected async void HandleException( Exception e )
         {
-            //Vibration.Vibrate();
+            Vibration.Vibrate(TimeSpan.FromMilliseconds(100));
             await Shell.Current.DisplayAlert( "Error", $"An error occured:\n{e.Message}", "OK" );
         }
 
