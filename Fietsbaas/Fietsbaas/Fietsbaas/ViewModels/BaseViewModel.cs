@@ -30,6 +30,16 @@ namespace Fietsbaas.ViewModels
             set { SetProperty( ref title, value ); }
         }
 
+        private ImageSource raceIcon;
+        public ImageSource RaceIcon
+        {
+            get
+            {
+                if ( raceIcon == null ) raceIcon = ImageSource.FromResource( "Fietsbaas.images.race-icon.png" );
+                return raceIcon;
+            }
+        }
+
         protected bool SetProperty<T>( ref T backingStore, T value,
             [CallerMemberName] string propertyName = "",
             Action onChanged = null )

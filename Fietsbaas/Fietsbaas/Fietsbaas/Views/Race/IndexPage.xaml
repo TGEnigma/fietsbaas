@@ -18,50 +18,44 @@
     -->
     <StackLayout>
         <RefreshView x:DataType="local:RaceIndexViewModel" Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}">
-            <ListView x:Name="ItemsListView"
+            <CollectionView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
                 SelectionMode="None"
-                VerticalOptions="FillAndExpand"
-                HasUnevenRows="true"
-                CachingStrategy="RecycleElement">
-                <ListView.ItemTemplate>
+                VerticalOptions="FillAndExpand">
+                <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Race">
-                        <ViewCell>
-                            <StackLayout Padding="10">
-                                <Frame HasShadow="True" Margin="0,0,0,0" Padding="0,0,0,10" >
-                                    <StackLayout>
-                                        <Frame BackgroundColor="#333" Padding="0" Margin="0">
-                                            <StackLayout Orientation="Horizontal">
-                                                <!--<Image Margin="5" Source="{Binding Source={RelativeSource AncestorType={x:Type local:RaceIndexViewModel}}, Path=RaceIcon}" HorizontalOptions="Start"/>-->
-                                                <Label Text="{Binding Name}" TextColor="White" 
+                        <StackLayout Padding="10">
+                            <Frame HasShadow="True" Margin="0,0,0,0" Padding="0,0,0,10" >
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal" BackgroundColor="#333" Padding="0" Margin="0">
+                                        <Image Margin="5" Source="{Binding Source={RelativeSource AncestorType={x:Type local:RaceIndexViewModel}}, Path=RaceIcon}" HorizontalOptions="Start"/>
+                                        <Label Text="{Binding Name}" TextColor="White" 
                                                     LineBreakMode="NoWrap" 
                                                     Style="{DynamicResource ListItemTextStyle}" 
                                                     HorizontalOptions="Center"
                                                     VerticalOptions="Center"
                                                     FontSize="16"
                                                     Padding="10"
-                                                    Margin="0"/>
-                                            </StackLayout>
-                                        </Frame>
-                                        <Label Text="{Binding Description}" 
+                                                    Margin="0" />
+                                    </StackLayout>
+                                    <Label Text="{Binding Description}" 
                                             LineBreakMode="NoWrap"
                                             Style="{DynamicResource ListItemDetailTextStyle}"
                                             Margin="10"
                                             FontSize="13" />
-                                        <StackLayout.GestureRecognizers>
-                                            <TapGestureRecognizer 
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer 
                                                 NumberOfTapsRequired="1"
                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type local:RaceIndexViewModel}}, Path=ItemTapped}"		
                                                 CommandParameter="{Binding .}">
-                                            </TapGestureRecognizer>
-                                        </StackLayout.GestureRecognizers>
-                                    </StackLayout>
-                                </Frame>
-                            </StackLayout>
-                        </ViewCell>
+                                        </TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </RefreshView>
     </StackLayout>
 </view:BasePage>

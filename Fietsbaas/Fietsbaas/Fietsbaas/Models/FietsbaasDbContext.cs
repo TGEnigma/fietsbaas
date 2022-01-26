@@ -205,8 +205,8 @@ namespace Fietsbaas.Models
                             // Copy race data
                             var dbRace = new Race()
                             {
-                                Name = race.Description,
-                                Description = season.Name ?? season.Description,
+                                Name = race.Description ?? "",
+                                Description = ( season.Name ?? season.Description ) ?? "",
                                 StartDate = race.Scheduled,
                                 EndDate = race.ScheduledEnd
                             };
