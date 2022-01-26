@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 using Xamarin.Essentials;
+using System.Reflection;
 
 namespace Fietsbaas.ViewModels
 {
@@ -22,6 +23,7 @@ namespace Fietsbaas.ViewModels
         }
 
         string title = string.Empty;
+
         public string Title
         {
             get { return title; }

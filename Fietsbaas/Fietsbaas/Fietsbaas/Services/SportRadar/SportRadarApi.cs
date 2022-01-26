@@ -29,8 +29,16 @@ namespace Fietsbaas.Services.SportRadar
                     if ( !File.Exists( filePath ) )
                     {
                         // Fetch request from server
-                        json = await client.GetStringAsync( uri );
-                        File.WriteAllText( filePath, json );
+                        try
+                        {
+                            json = await client.GetStringAsync( uri );
+                            File.WriteAllText( filePath, json );
+                        }
+                        catch ( HttpRequestException ex )
+                        { 
+                            File.WriteAllText( filePath, "" );
+                            return null;
+                        }
                     }
                     else
                     {
