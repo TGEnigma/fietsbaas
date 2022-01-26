@@ -86,24 +86,16 @@ namespace Fietsbaas.ViewModels
                 await Db.SaveChangesAsync();
             }
 
-
-            Items = new ObservableCollection<TeamRacerViewModel>(
-                Db.Racers
+            var racers = Db.Racers
                 .Where( x => x.RaceId == RaceId )
                 .Include( x => x.Cyclist )
-                .ToList()
-                .Join(
-                    team.Racers,
-                    racer => racer.Id,
-                    teamRacer => teamRacer.RacerId,
-                    ( racer, teamRacer ) => new
-                    {
-                        Id = racer.Id,
-                        Name = racer.Cyclist.Name,
-                        Bet = teamRacer != null ? teamRacer.Bet : BetType.WinsAnyRace,
-                        IsSelected = teamRacer != null,
-                    } )
-                .Select( x => new TeamRacerViewModel( x.Id, x.Name, x.Bet, BetTypes, x.IsSelected ) )
+                .ToList();
+
+            Items = new ObservableCollection<TeamRacerViewModel>(
+                from r in racers
+                join tr in team.Racers ?? new List<TeamRacer>() on r.Id equals tr.RacerId into rtrJoin
+                from rtr in rtrJoin.DefaultIfEmpty()
+                select new TeamRacerViewModel( r.Id, r.Cyclist.Name, rtr != null ? rtr.Bet : BetType.WinsAnyRace, BetTypes, rtr != null )
             );
         }
     }

@@ -61,7 +61,7 @@ namespace Fietsbaas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Iv1.df8e4a0648252fe1.
+        ///   Looks up a localized string similar to SXYxLmRmOGU0YTA2NDgyNTJmZTE=.
         /// </summary>
         internal static string GithubClientId {
             get {
@@ -70,7 +70,7 @@ namespace Fietsbaas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 6d784d4cd54aaf532f81a067536ac39462c9d3c2.
+        ///   Looks up a localized string similar to NmQ3ODRkNGNkNTRhYWY1MzJmODFhMDY3NTM2YWMzOTQ2MmM5ZDNjMg==.
         /// </summary>
         internal static string GithubClientSecret {
             get {
@@ -79,7 +79,7 @@ namespace Fietsbaas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ejZnZnJyODhlN3EzbWRmeWZ3NHI5ZTJt.
+        ///   Looks up a localized string similar to aDZtZDl0a2M0emZqY2ZxN3pzY3g3ejd6.
         /// </summary>
         internal static string SportRadarApiKey {
             get {

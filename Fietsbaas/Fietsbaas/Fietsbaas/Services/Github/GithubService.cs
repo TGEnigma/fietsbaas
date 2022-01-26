@@ -35,8 +35,9 @@ namespace Fietsbaas.Services.Github
         public async Task<string> GetAccessCodeAsync()
         {
             // get access token request code using web authenticator
+            var clientId = Encoding.UTF8.GetString( Convert.FromBase64String( Resources.GithubClientId ) );
             var authResult = await WebAuthenticator.AuthenticateAsync(
-                new Uri( $"https://github.com/login/oauth/authorize?scope=user&client_id={Resources.GithubClientId}" ),
+                new Uri( $"https://github.com/login/oauth/authorize?scope=user&client_id={clientId}" ),
                 new Uri( "myapp://" ) );
 
             return authResult.Properties[ "code" ];
@@ -44,11 +45,14 @@ namespace Fietsbaas.Services.Github
 
         public async Task<string> GetAccessTokenAsync( string accessCode )
         {
+            var clientId = Encoding.UTF8.GetString( Convert.FromBase64String( Resources.GithubClientId ) );
+            var clientSecret = Encoding.UTF8.GetString( Convert.FromBase64String( Resources.GithubClientSecret ) );
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Accept.Add( new MediaTypeWithQualityHeaderValue( "application/json" ) );
-            var token = await GetJsonResponseAsync<Token>( $"https://github.com/login/oauth/access_token?client_id={Resources.GithubClientId}&client_secret={Resources.GithubClientSecret}&code={accessCode}" );
+            var token = await GetJsonResponseAsync<Token>( $"https://github.com/login/oauth/access_token?client_id={clientId}&client_secret={clientSecret}&code={accessCode}" );
             return token.AccessToken;
         }
+
         public async Task<User> GetUserAsync( string accessToken )
         {
             return await GetJsonResponseAsync<User>( $"https://api.github.com/user", token: accessToken );
