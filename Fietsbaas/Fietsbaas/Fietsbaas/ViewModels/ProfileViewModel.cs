@@ -40,6 +40,7 @@ namespace Fietsbaas.ViewModels
         {
             Email = App.User.Email;
             Points = App.User.Points;
+            ProfilePic = App.User.ProfilePicture;
             TakeProfilePicture = new Command( OnTakePictureClicked );
         }
 
