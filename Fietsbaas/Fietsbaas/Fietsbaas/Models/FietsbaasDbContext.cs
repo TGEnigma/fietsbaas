@@ -141,6 +141,15 @@ namespace Fietsbaas.Models
                 // Create cyclists
                 AddCyclist( "Jan Smit", race1, race2 );
                 AddCyclist( "Bert Jan", race1, race2 );
+                AddCyclist("Martien Lenn", race1, race2);
+                AddCyclist("Tim Nerman", race1, race2);
+                AddCyclist("Oscar Felix", race1, race2);
+                AddCyclist("Henning Roman", race1, race2);
+                AddCyclist("Emil Leon", race1, race2);
+                AddCyclist("Willy Florian", race1, race2);
+                AddCyclist("Tomasso Lodewijk", race1, race2);
+                AddCyclist("Wim Mads", race1, race2);
+
 
                 // Create teams
                 var team1 = new Team()
