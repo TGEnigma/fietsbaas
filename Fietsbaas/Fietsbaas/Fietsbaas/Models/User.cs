@@ -9,7 +9,7 @@ namespace Fietsbaas.Models
         public string Password { get; set; }
         public int Points { get; set; }
         public Role Role { get; set; }
-        public ImageSource ProfilePicture { get; set; }
+        public string ProfilePicture { get; set; }
 
         public virtual ICollection<Team> Teams { get; set; }
     }
