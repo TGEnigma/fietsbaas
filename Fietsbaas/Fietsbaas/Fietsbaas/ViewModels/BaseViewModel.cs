@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 using Xamarin.Essentials;
+using System.Reflection;
 
 namespace Fietsbaas.ViewModels
 {
@@ -22,10 +23,21 @@ namespace Fietsbaas.ViewModels
         }
 
         string title = string.Empty;
+
         public string Title
         {
             get { return title; }
             set { SetProperty( ref title, value ); }
+        }
+
+        private ImageSource raceIcon;
+        public ImageSource RaceIcon
+        {
+            get
+            {
+                if ( raceIcon == null ) raceIcon = ImageSource.FromResource( "Fietsbaas.images.race-icon.png" );
+                return raceIcon;
+            }
         }
 
         protected bool SetProperty<T>( ref T backingStore, T value,
