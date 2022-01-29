@@ -91,6 +91,7 @@
     <FlyoutItem Title="Races" Icon="{local:ImageResource Fietsbaas.images.race-icon.png}">
         <ShellContent ContentTemplate="{DataTemplate raceviews:IndexPage}" />
     </FlyoutItem>
+    <!--uncommented cyclists-->
     <!--<FlyoutItem Title="Cyclists" Icon="icon_feed.png">
         <ShellContent ContentTemplate="{DataTemplate cyclistviews:IndexPage}" />
     </FlyoutItem>-->
