@@ -12,7 +12,11 @@
                 <Frame Padding="10" CornerRadius="0">
                     <Label Text="Create new profile picture" HorizontalTextAlignment="Center" TextColor="White" FontSize="30"/>
                 </Frame>
-                <Button Text="New photo" Command="{Binding TakeProfilePicture}"/>
+                <Label Text="&#xf030;"
+                        FontFamily="{StaticResource FontAwesomeBrands}"/>
+                <Button Text="&#xf030;"
+                        FontFamily="{StaticResource FontAwesomeBrands}" 
+                        Command="{Binding TakeProfilePicture}"/>
                 <Image Source="{Binding ProfilePic}" WidthRequest="50" HeightRequest="50"/>
             </StackLayout>
             <StackLayout Padding="10,20,10,0" HorizontalOptions="Center" >
