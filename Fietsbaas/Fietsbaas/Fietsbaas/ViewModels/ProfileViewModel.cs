@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Xamarin.Essentials;
@@ -40,7 +41,6 @@ namespace Fietsbaas.ViewModels
         {
             Email = App.User.Email;
             Points = App.User.Points;
-            ProfilePic = App.User.ProfilePicture;
             TakeProfilePicture = new Command( OnTakePictureClicked );
         }
 
@@ -51,8 +51,11 @@ namespace Fietsbaas.ViewModels
                 Title = "Please pick a photo"
             });
             var stream = await result.OpenReadAsync();
-            App.User.ProfilePicture = ProfilePic;
+            using (var fileStream = File.Open(Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "ProfilePic"), FileMode.CreateNew))
+                stream.CopyTo(fileStream);
+                App.User.ProfilePicture = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "ProfilePic");
             ProfilePic = App.User.ProfilePicture;
+            stream.Dispose(); 
         }
     }     
 }
