@@ -14,7 +14,7 @@ namespace Fietsbaas
         /// <summary>
         /// Defines the routes that must not be globally accessible.
         /// </summary>
-        public static string[] InternalRoutes = new[]
+        public static readonly string[] InternalRoutes = new[]
         {
             "index"
         };

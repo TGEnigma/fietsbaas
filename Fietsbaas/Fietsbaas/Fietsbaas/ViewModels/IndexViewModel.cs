@@ -13,6 +13,9 @@ namespace Fietsbaas.ViewModels
     public class IndexViewModel : BaseListViewModel<Race>
 
     {
+        public string Username { get; set; }
+        public int Points { get; set; }
+
         protected override async Task OnAddItemAsync()
         {
             //throw new NotImplementedException();
@@ -25,7 +28,14 @@ namespace Fietsbaas.ViewModels
 
         protected override async Task OnRefreshAsync()
         {
-            Items = new ObservableCollection<Race>(await Db.Races.OrderBy(x => x.StartDate).ToListAsync());
+            Username = App.User?.Email;
+            Points = App.User?.Points ?? 0;
+            Items = new ObservableCollection<Race>( await
+                Db.Races
+                .Where( x => x.StartDate >= DateTime.Now )
+                .Take( 5 )
+                .OrderBy( x => x.StartDate )
+                .ToListAsync() );
         }
     }
 }

@@ -9,12 +9,12 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Plugin.Media;
 
-namespace Fietsbaas.Views
+namespace Fietsbaas.Views.User
 {
     [XamlCompilation( XamlCompilationOptions.Compile )]
-    public partial class ProfilePage : ContentPage
+    public partial class DetailPage : ContentPage
     {
-        public ProfilePage()
+        public DetailPage()
         {
             InitializeComponent();
             BindingContext = new ProfileViewModel();

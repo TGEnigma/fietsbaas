@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:Fietsbaas.Models"
              xmlns:viewmodels="clr-namespace:Fietsbaas.ViewModels"
-             x:Class="Fietsbaas.Views.ProfilePage"
+             x:Class="Fietsbaas.Views.User.DetailPage"
              x:DataType="viewmodels:ProfileViewModel"
              Title="Your user profile">
   <ContentPage.Content>

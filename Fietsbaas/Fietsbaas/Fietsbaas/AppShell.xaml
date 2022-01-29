@@ -5,6 +5,7 @@
        xmlns:raceviews="clr-namespace:Fietsbaas.Views.Race"
        xmlns:stageviews="clr-namespace:Fietsbaas.Views.Stage"
        xmlns:cyclistviews="clr-namespace:Fietsbaas.Views.Cyclist"
+       xmlns:userviews="clr-namespace:Fietsbaas.Views.User"
        xmlns:local="clr-namespace:Fietsbaas.Services"
        Title="Fietsbaas"
        x:Class="Fietsbaas.AppShell"
@@ -97,7 +98,7 @@
         <ShellContent ContentTemplate="{DataTemplate views:LeaderboardPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Profile" Icon="{local:ImageResource Fietsbaas.images.profile-icon.png}">
-        <ShellContent ContentTemplate="{DataTemplate views:ProfilePage}" />
+        <ShellContent x:Name="profilePage" ContentTemplate="{DataTemplate userviews:DetailPage}" />
     </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->

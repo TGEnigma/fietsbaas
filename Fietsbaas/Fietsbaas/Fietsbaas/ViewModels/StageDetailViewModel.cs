@@ -10,13 +10,11 @@ using Xamarin.Forms;
 
 namespace Fietsbaas.ViewModels
 {
-    public class RaceDetailViewModel : BaseDetailViewModel
+    public class StageDetailViewModel : BaseDetailViewModel
     {
-        private int _id;
         private string name;
         private string description;
-        private string stageName; 
-        private ObservableCollection<Stage> stages;
+        private ObservableCollection<User> items;
 
         public string Name 
         { 
@@ -30,40 +28,18 @@ namespace Fietsbaas.ViewModels
             set => SetProperty( ref description, value );
         }
 
-        public string StageName
+        public ObservableCollection<User> Items
         {
-            get => stageName;
-            set => SetProperty( ref stageName, value );
+            get => items;
+            set => SetProperty( ref items, value );
         }
 
-        public ObservableCollection<Stage> Stages
-        {
-            get => stages;
-            set => SetProperty( ref stages, value );
-        }
+        public Command RefreshCommand { get; }
 
-        public Command TeamCommand { get; set; }
-        public Command RefreshCommand { get; set; }
-        public Command<Stage> ItemTapped { get; set; }
-
-        public RaceDetailViewModel()
+        public StageDetailViewModel()
         {
-            Title = "Stages";
-            TeamCommand = new Command( ExecuteTeamCommand );
-            RefreshCommand = new Command(async () => await ExecuteRefresh());
-            ItemTapped = new Command<Stage>( ExecuteItemTamppedCommand );
-        }
-
-        private async void ExecuteItemTamppedCommand( Stage stage )
-        {
-            try
-            {
-                await Shell.Current.GoToAsync( $"race/stage/detail?id={stage.Id}" );
-            }
-            catch ( Exception ex )
-            {
-                HandleException( ex );
-            }
+            Title = "Stage details";
+            RefreshCommand = new Command( async () => await ExecuteRefresh() );
         }
 
         async Task ExecuteRefresh()
@@ -72,9 +48,9 @@ namespace Fietsbaas.ViewModels
 
             try
             {
-                await OnRefreshAsync();
+                //await OnRefreshAsync();
             }
-            catch (Exception ex)
+            catch ( Exception ex )
             {
                 HandleException( ex );
             }
@@ -84,31 +60,25 @@ namespace Fietsbaas.ViewModels
             }
         }
 
-        async Task OnRefreshAsync()
-        {
-            Stages = new ObservableCollection<Stage>(Db.Stages.Where(x => x.RaceId == Id));
-        }
-
-        private async void ExecuteTeamCommand( object obj )
-        {
-            try
-            {
-                await Shell.Current.GoToAsync( $"race/team/index?raceid={Id}" );
-            }
-            catch ( Exception ex )
-            {
-                HandleException( ex );
-            }
-        }
-
         protected override void OnLoad( int id )
         {
-            var race = Db.Races.Find( id );
-            if ( race != null )
+            var stage = Db.Stages.Find( id );
+            if ( stage != null )
             {
-                Name = race.Name;
-                Description = race.Description;
-                Stages = new ObservableCollection<Stage>(Db.Stages.Where(x => x.RaceId == id ));
+                Name = stage.Name;
+
+                var userRacerScores = (from u in Db.Users
+                                      join t in Db.Teams on u.Id equals t.UserId
+                                      join tr in Db.TeamRacers on t.Id equals tr.TeamId
+                                      join r in Db.Racers on tr.RacerId equals r.Id
+                                      where t.RaceId == id && r.Position != null
+                                      select new { User = u, Points = r.Position }).ToList();
+
+                Items = new ObservableCollection<User>(
+                    userRacerScores.ToList()
+                    .GroupBy( x => x.User )
+                    .Select( x => new User() { Email = x.Key.Email, Points = x.Sum( y => y.Points.Value ) } )
+                );
             }
         }
         public override void Refresh()

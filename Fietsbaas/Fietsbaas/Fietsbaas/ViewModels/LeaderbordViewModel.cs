@@ -23,7 +23,7 @@ namespace Fietsbaas.ViewModels
 
         protected override async Task OnRefreshAsync()
         {
-            Items = new ObservableCollection<User>(await Db.Users.OrderBy(x => x.Points ).ToListAsync());
+            Items = new ObservableCollection<User>(await Db.Users.OrderByDescending( x => x.Points ).ToListAsync());
         }
 
         

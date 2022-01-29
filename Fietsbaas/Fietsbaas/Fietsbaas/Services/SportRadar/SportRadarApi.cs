@@ -49,7 +49,7 @@ namespace Fietsbaas.Services.SportRadar
                     return JsonConvert.DeserializeObject<T>( json, new JsonSerializerSettings()
                     {
                         MissingMemberHandling = MissingMemberHandling.Error
-                    } ); ; ;
+                    } );
                 }
                 catch ( HttpRequestException ex )
                 {

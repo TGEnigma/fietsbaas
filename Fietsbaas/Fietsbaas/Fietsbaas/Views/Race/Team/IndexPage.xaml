@@ -59,8 +59,8 @@
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
                                     <CheckBox Grid.Column="1" Margin="1" IsChecked="{Binding IsSelected}"/>
-                                    <Picker Grid.Column="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="1" SelectedItem="{Binding Bet}" 
-                                            ItemsSource="{Binding BetTypes}"/>
+                                    <Picker Grid.Column="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="1" ItemsSource="{Binding BetTypes}" 
+                                            SelectedItem="{Binding Bet, Mode=TwoWay}"/>
                                     <Grid.GestureRecognizers>
                                         <TapGestureRecognizer 
                                         NumberOfTapsRequired="1"

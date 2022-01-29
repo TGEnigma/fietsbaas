@@ -1,0 +1,713 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="FullSignature">
+  <Class Name="Fietsbaas.Models.Item" Collapsed="true">
+    <Position X="40.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Models\_Template\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Models.BaseModel" Collapsed="true">
+    <Position X="10" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\BaseModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Models.Cyclist" Collapsed="true">
+    <Position X="9" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Cyclist.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Models.FietsbaasDbContext" Collapsed="true">
+    <Position X="40.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQAACCAAAQAACAAAAAAAAAABAAgAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Models\FietsbaasDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Models.Race" Collapsed="true">
+    <Position X="11.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAgAAAAAAAAAAQgAAAAAAAAAAgAAEAAAAA=</HashCode>
+      <FileName>Models\Race.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Models.Racer" Collapsed="true">
+    <Position X="13.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQAAAAEAAAAAAAgAAAAAAAAAAIAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Models\Racer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Models.RacerStageProgress" Collapsed="true">
+    <Position X="15.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAEAAAAAAAgAAAAAAAAAAAAAAAAAKgAAAAAAAA=</HashCode>
+      <FileName>Models\RacerStageProgress.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Models.Stage" Collapsed="true">
+    <Position X="18" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Models\Stage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Models.Team" Collapsed="true">
+    <Position X="2.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQABAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Models\Team.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Models.TeamRacer" Collapsed="true">
+    <Position X="4.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAQAAAACAAAAAAACAAAAAAAAEAAAABAAAAA=</HashCode>
+      <FileName>Models\TeamRacer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Models.User" Collapsed="true">
+    <Position X="6.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAACAAgAAAEAAAAAAAAAAAAAACBAAAAAAAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.Github.GithubService" Collapsed="true">
+    <Position X="45.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAEAAAAAAAAAAAAAAAACAAQAAAAA=</HashCode>
+      <FileName>Services\Github\GithubService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.Github.Plan" Collapsed="true">
+    <Position X="38.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAQgAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Github\GithubService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.Github.User" Collapsed="true">
+    <Position X="38.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAqiAAAACAACAA+CCIAAASAgSEAAAUBCVAQjEKABAA=</HashCode>
+      <FileName>Services\Github\GithubService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.Github.Token" Collapsed="true">
+    <Position X="45.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAEAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Services\Github\GithubService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.SportRadarApi" Collapsed="true">
+    <Position X="2.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAACAAEAAAAAAAAAAAQgAAABAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarApi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.SportRadarApiV1" Collapsed="true">
+    <Position X="1.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAACgIBAAAAAAAABAAAAACAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarApiV1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.SportRadarApiV2" Collapsed="true">
+    <Position X="3.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAACAAACAIAAAAAhAAAAAACAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarApiV2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.SportRadarService" Collapsed="true">
+    <Position X="34.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKAAAgIBCAIAAAAAgAAAAACCAQAAEIAAAIAAAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.TeamProfile" Collapsed="true">
+    <Position X="44" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAEAAAgAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.SportEventSummary" Collapsed="true">
+    <Position X="51" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAgAgAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.Seasons" Collapsed="true">
+    <Position X="42.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAgAgAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.Sport" Collapsed="true">
+    <Position X="45.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.Category" Collapsed="true">
+    <Position X="44" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.Tournament" Collapsed="true">
+    <Position X="47.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACAAAAAAAAAAAQAAEAAAAAAAACAAAAACAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.Course" Collapsed="true">
+    <Position X="51" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAABQAAAAAAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.Stage" Collapsed="true">
+    <Position X="38.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAACCAAEIACgAACAAIQAAAwAAEAAAABQAQgAAAAIAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.Race" Collapsed="true">
+    <Position X="42.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgACAAAAAACAAAAAAIAAAAQAAEAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.SportEventStatu" Collapsed="true">
+    <Position X="47.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.Competitor" Collapsed="true">
+    <Position X="45.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAABAAAAAAACAAAAAAAQAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.CoverageInfo" Collapsed="true">
+    <Position X="37" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.Result" Collapsed="true">
+    <Position X="37" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAQAAAAAABAAEAEAABAAABAAAAAAAEAEAEQA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.RaceSummary" Collapsed="true">
+    <Position X="44" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAACAAAAIAAAAAAAAAAAAAAECAAAAAAAAAAAoAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.Team" Collapsed="true">
+    <Position X="42.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAAAAAAAAAACAAAAAAAQAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.RiderProfile" Collapsed="true">
+    <Position X="38.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAgAAAEAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.Schedule" Collapsed="true">
+    <Position X="40.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.SportEventStatus" Collapsed="true">
+    <Position X="49.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.StageSummary" Collapsed="true">
+    <Position X="40.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAIAAAAAAAAAAAAAAECAAAAAAAAAgAoAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.TournamentSchedule" Collapsed="true">
+    <Position X="37" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAgAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.TournamentList" Collapsed="true">
+    <Position X="51" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAgAAAEAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.TournamentInfo" Collapsed="true">
+    <Position X="49.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAoAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.CompetitorProfile" Collapsed="true">
+    <Position X="47.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAEAAAgAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.CompetitorRanking" Collapsed="true">
+    <Position X="49.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAgAAAAAAAAAAAAAAAAACAAAAAAAAAEAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.Ranking" Collapsed="true">
+    <Position X="45.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAQAAAAAAAAgAAAAAIAAAAQ=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.RankingsResult" Collapsed="true">
+    <Position X="47.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.SportRadar.SeasonSchedule" Collapsed="true">
+    <Position X="44" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAgAgAAAAAA=</HashCode>
+      <FileName>Services\SportRadar\SportRadarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Services.ImageResourceExtension" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="47.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAACAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\ImageResourceExtension.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Fietsbaas.Services.MockDataStore" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="51" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAgAABAAAABAAAAAAEAAAAAQAAA=</HashCode>
+      <FileName>Services\MockDataStore.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Fietsbaas.ViewModels.AboutViewModel" Collapsed="true">
+    <Position X="25.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>ViewModels\_Template\AboutViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.ViewModels.ItemDetailViewModel" Collapsed="true">
+    <Position X="30" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACgAAAAoAAAAAAAAAAAQAAIAAAACAAAAAA=</HashCode>
+      <FileName>ViewModels\_Template\ItemDetailViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.ViewModels.ItemsViewModel" Collapsed="true">
+    <Position X="34.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAABACBAAAAIAAAAABQAEAAAAABAAAAAAAEA=</HashCode>
+      <FileName>ViewModels\_Template\ItemsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.ViewModels.NewItemViewModel" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAAAACAAAAAgAAQAIAAAAAAAAAAAAAAIAAAACAAEAAA=</HashCode>
+      <FileName>ViewModels\_Template\NewItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.ViewModels.BaseDetailViewModel" Collapsed="true">
+    <Position X="6.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>ViewModels\BaseDetailViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.ViewModels.BaseListViewModel&lt;T&gt;" Collapsed="true">
+    <Position X="15.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAgAAAgAABACJAAgAIAAAAAARAAAAAAQBAAAAAAAEA=</HashCode>
+      <FileName>ViewModels\BaseListViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.ViewModels.BaseViewModel" Collapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQABAAEAAMFAAAQAQgAEAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>ViewModels\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Fietsbaas.ViewModels.CyclistIndexViewModel" Collapsed="true">
+    <Position X="44" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\CyclistIndexViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.ViewModels.ForgotPasswordViewModel" Collapsed="true">
+    <Position X="23.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAACAEAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>ViewModels\ForgotPasswordViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.ViewModels.IndexViewModel" Collapsed="true">
+    <Position X="16.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAIAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\IndexViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.ViewModels.LeaderbordViewModel" Collapsed="true">
+    <Position X="18.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAIAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\LeaderbordViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.ViewModels.LoginViewModel" Collapsed="true">
+    <Position X="27.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAQAAAAEAAAAAAKAACAAAACAAAQCAACEAAA=</HashCode>
+      <FileName>ViewModels\LoginViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.ViewModels.ProfileViewModel" Collapsed="true">
+    <Position X="32.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JAAAACCCACAAgAkgAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>ViewModels\ProfileViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.ViewModels.StageDetailViewModel" Collapsed="true">
+    <Position X="7.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABgAAAAIAAAAAQCAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\RaceDetailViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.ViewModels.RaceIndexViewModel" Collapsed="true">
+    <Position X="12" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAIAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\RaceIndexViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.ViewModels.RegistrationViewModel" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABKAAAAAgAAAAAAAAAAAAAACCAAAAAgIAAAA=</HashCode>
+      <FileName>ViewModels\RegistrationViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.ViewModels.RaceDetailViewModel" Collapsed="true">
+    <Position X="5.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAgAABgAAAAqABCAAQCAAAECAgAAAgIAAAEAEA=</HashCode>
+      <FileName>ViewModels\StageDetailViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.ViewModels.TeamIndexViewModel" Collapsed="true">
+    <Position X="14.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAIAAAIAAAAAAAAAAAQAAQAAIAAAECAA=</HashCode>
+      <FileName>ViewModels\TeamIndexViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.ViewModels.TeamRacerViewModel" Collapsed="true">
+    <Position X="21" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAEAACAAAAAgQAAAAEAQAAEAAAABAAAAA=</HashCode>
+      <FileName>ViewModels\TeamIndexViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.AboutPage" Collapsed="true">
+    <Position X="37" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\_Template\AboutPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.ItemDetailPage" Collapsed="true">
+    <Position X="42.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\_Template\ItemDetailPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.ItemsPage" Collapsed="true">
+    <Position X="44" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\_Template\ItemsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.NewItemPage" Collapsed="true">
+    <Position X="37" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\_Template\NewItemPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.ProfilePage" Collapsed="true">
+    <Position X="40.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\User\DetailPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.BasePage" Collapsed="true">
+    <Position X="6.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\BasePage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.ForgotPasswordConfirmationPage" Collapsed="true">
+    <Position X="42.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\ForgotPasswordConfirmationPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.ForgotPasswordPage" Collapsed="true">
+    <Position X="44" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\ForgotPasswordPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.IndexPage" Collapsed="true">
+    <Position X="49.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\IndexPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.LeaderboardPage" Collapsed="true">
+    <Position X="45.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Views\LeaderboardPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.LoadingPage" Collapsed="true">
+    <Position X="47.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAACAAAAAAAAAACAAAAAAAAAAEAAABAAAAAAAA=</HashCode>
+      <FileName>Views\LoadingPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.LoginPage" Collapsed="true">
+    <Position X="49.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\LoginPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.RegistrationPage" Collapsed="true">
+    <Position X="49.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\RegistrationPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.Cyclist.CreatePage" Collapsed="true">
+    <Position X="38.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Cyclist\CreatePage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.Cyclist.DetailPage" Collapsed="true">
+    <Position X="45.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Cyclist\DetailPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.Cyclist.EditPage" Collapsed="true">
+    <Position X="51" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Cyclist\EditPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.Cyclist.IndexPage" Collapsed="true">
+    <Position X="51" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Cyclist\IndexPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.Race.Stage.BetPage" Collapsed="true">
+    <Position X="42.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Race\Stage\BetPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.Race.Stage.DetailPage" Collapsed="true">
+    <Position X="47.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAggAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Race\Stage\DetailPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.Stage.CreatePage" Collapsed="true">
+    <Position X="40.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Race\Stage\CreatePage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.Stage.EditPage" Collapsed="true">
+    <Position X="37" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Race\Stage\EditPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.Stage.IndexPage" Collapsed="true">
+    <Position X="37" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Race\Stage\IndexPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.Race.Team.IndexPage" Collapsed="true">
+    <Position X="38.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAggAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Race\Team\IndexPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.Race.CreatePage" Collapsed="true">
+    <Position X="42.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Race\CreatePage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.Race.DetailPage" Collapsed="true">
+    <Position X="49.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Views\Race\DetailPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.Race.EditPage" Collapsed="true">
+    <Position X="38.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Race\EditPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Views.Race.IndexPage" Collapsed="true">
+    <Position X="6.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Views\Race\IndexPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.App" Collapsed="true">
+    <Position X="38.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAABAAAAgAEAAAAAAAAAAAAAAAAAAQAAABAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.AppShell" Collapsed="true">
+    <Position X="40.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAgAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAA=</HashCode>
+      <FileName>AppShell.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fietsbaas.Resources" Collapsed="true">
+    <Position X="51" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAUABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Fietsbaas.Services.IDataStore&lt;T&gt;" Collapsed="true">
+    <Position X="37" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAABAAAABAAAAAAEAAAAAQAAA=</HashCode>
+      <FileName>Services\IDataStore.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Fietsbaas.Models.BetType" Collapsed="true">
+    <Position X="37" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAEAAAAAAQAAAAAAAAAAAAAACAAAAAAIAAAAAA=</HashCode>
+      <FileName>Models\BetType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Fietsbaas.Models.RacerStatus" Collapsed="true">
+    <Position X="38.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Models\RacerStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Fietsbaas.Models.Role" Collapsed="true">
+    <Position X="40.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Role.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

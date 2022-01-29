@@ -5,44 +5,60 @@
              xmlns:model="clr-namespace:Fietsbaas.Models"  
              xmlns:view="clr-namespace:Fietsbaas.Views"
              xmlns:local="clr-namespace:Fietsbaas.ViewModels"  
-             Title="Feed">
+             Title="Feed"
+             x:DataType="local:IndexViewModel">
 
     <ContentPage.Content>
         <StackLayout>
-                <RefreshView x:DataType="local:IndexViewModel" Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}">
-                    <CollectionView x:Name="ItemsListView"
+            <Label Margin="20,20,20,0" HorizontalOptions="Center" Text="{Binding Username, StringFormat='Welcome {0}'}" FontSize="Title"/>
+            <Label HorizontalOptions="Center" Text="{Binding Points, StringFormat='You have {0} points'}" FontSize="Subtitle"/>
+
+            <Label Text="You can bet on these upcoming races" HorizontalOptions="Center" FontSize="Medium" Margin="40,40,40,0"/>
+            <RefreshView x:DataType="local:IndexViewModel" Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}">
+                <CollectionView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
-                SelectionMode="None">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <StackLayout Padding="10" x:DataType="model:Race">
-                                    <Label Text="{Binding Name}" 
-                            LineBreakMode="NoWrap" 
-                            Style="{DynamicResource ListItemTextStyle}" 
-                            FontSize="16" />
-                                    <Label Text="{Binding StartDate}" 
-                            LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
-                                <Label Text="{Binding EndDate}" 
-                            LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
-                                <StackLayout.GestureRecognizers>
-                                        <TapGestureRecognizer 
-                                NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:IndexViewModel}}, Path=ItemTapped}"		
-                                CommandParameter="{Binding .}">
-                                        </TapGestureRecognizer>
-                                    </StackLayout.GestureRecognizers>
-                                </StackLayout>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
-                </RefreshView>
-
-
-
-            </StackLayout>
-        </ContentPage.Content>
+                SelectionMode="None"
+                VerticalOptions="FillAndExpand">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Race">
+                            <StackLayout Padding="10">
+                                <Frame HasShadow="True" Margin="0,0,0,0" Padding="0,0,0,10" >
+                                    <StackLayout>
+                                        <StackLayout Orientation="Horizontal" BackgroundColor="#333" Padding="0" Margin="0">
+                                            <Image Margin="5" Source="{Binding Source={RelativeSource AncestorType={x:Type local:IndexViewModel}}, Path=RaceIcon}" HorizontalOptions="Start"/>
+                                            <Label Text="{Binding Name}" TextColor="White" 
+                                                    LineBreakMode="NoWrap" 
+                                                    Style="{DynamicResource ListItemTextStyle}" 
+                                                    HorizontalOptions="Center"
+                                                    VerticalOptions="Center"
+                                                    FontSize="16"
+                                                    Padding="10"
+                                                    Margin="0" />
+                                        </StackLayout>
+                                        <Label Text="{Binding StartDate, StringFormat='Start: {0}'}" 
+                                            LineBreakMode="NoWrap"
+                                            Style="{DynamicResource ListItemDetailTextStyle}"
+                                            Margin="10"
+                                            FontSize="13" />
+                                        <Label Text="{Binding EndDate, StringFormat='End: {0}'}" 
+                                            LineBreakMode="NoWrap"
+                                            Style="{DynamicResource ListItemDetailTextStyle}"
+                                            Margin="10"
+                                            FontSize="13" />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer 
+                                                NumberOfTapsRequired="1"
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:IndexViewModel}}, Path=ItemTapped}"		
+                                                CommandParameter="{Binding .}">
+                                            </TapGestureRecognizer>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

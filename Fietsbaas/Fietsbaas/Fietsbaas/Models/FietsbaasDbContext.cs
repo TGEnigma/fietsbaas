@@ -13,6 +13,7 @@ namespace Fietsbaas.Models
         public DbSet<Cyclist> Cyclists { get; set; }
         public DbSet<Race> Races { get; set; }
         public DbSet<Racer> Racers { get; set; }
+        public DbSet<TeamRacer> TeamRacers { get; set; }
         public DbSet<RacerStageProgress> RacerStageProgress { get; set; }
         public DbSet<Stage> Stages { get; set; }
         public DbSet<Team> Teams { get; set; }
@@ -46,7 +47,7 @@ namespace Fietsbaas.Models
                 {
                     Email = "admin@mail.com",
                     Password = "admin",
-                    Points = 0,
+                    Points = 20,
                     Role = Role.Admin,
                 };
                 context.Users.Add( adminUser );
@@ -55,7 +56,7 @@ namespace Fietsbaas.Models
                 {
                     Email = "user@mail.com",
                     Password = "user",
-                    Points = 0,
+                    Points = 5,
                     Role = Role.User,
                 };
                 context.Users.Add( testUser );
@@ -111,6 +112,8 @@ namespace Fietsbaas.Models
                 context.Stages.Add( stage4 );
                 context.SaveChanges();
 
+                var random = new Random();
+
                 void AddCyclist(string name, params Race[] races)
                 {
                     // Create cyclists
@@ -127,9 +130,9 @@ namespace Fietsbaas.Models
                         var racer = new Racer()
                         {
                             Cyclist = cyclist,
-                            Position = null,
+                            Position = random.Next() % 10,
                             Race = race,
-                            Status = RacerStatus.Active,
+                            Status = RacerStatus.Finished,
                         };
 
                         context.Racers.Add( racer );
@@ -152,21 +155,35 @@ namespace Fietsbaas.Models
 
 
                 // Create teams
+                var teamRacer1 = new TeamRacer()
+                {
+                    IsReserve = false,
+                    Racer = context.Racers.First(),
+                    Bet = BetType.WinsAnyRace,
+                };
+                context.TeamRacers.Add( teamRacer1 );
+                context.SaveChanges();
+
                 var team1 = new Team()
                 {
                     User = adminUser,
                     Race = race1,
                     Racers = new []
                     {
-                        new TeamRacer()
-                        {
-                            IsReserve = false,
-                            Racer = context.Racers.First(),
-                            Bet = BetType.WinsAnyRace,
-                        }
+                        teamRacer1
                     }
                 };
                 context.Teams.Add( team1 );
+                context.SaveChanges();
+
+                var teamRacer2 = new TeamRacer()
+                {
+                    IsReserve = false,
+                    Racer = context.Racers.First(),
+                    Bet = BetType.WinsAnyRace,
+                };
+                context.TeamRacers.Add( teamRacer2 );
+                context.SaveChanges();
 
                 var team2 = new Team()
                 {
@@ -174,15 +191,11 @@ namespace Fietsbaas.Models
                     Race = race2,
                     Racers = new[]
                     {
-                        new TeamRacer()
-                        {
-                            IsReserve = false,
-                            Racer = context.Racers.First(),
-                            Bet = BetType.WinsAnyRace,
-                        }
+                        teamRacer2
                     }
                 };
                 context.Teams.Add( team2 );
+                context.SaveChanges();
 
                 context.SaveChanges();
             }
@@ -215,7 +228,7 @@ namespace Fietsbaas.Models
                             var dbRace = new Race()
                             {
                                 Name = race.Description ?? "",
-                                Description = ( season.Name ?? season.Description ) ?? "",
+                                Description = ( season.Name ?? tournament.Description ) ?? "",
                                 StartDate = race.Scheduled,
                                 EndDate = race.ScheduledEnd
                             };

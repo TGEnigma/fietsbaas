@@ -7,7 +7,7 @@
              x:DataType="vm:RaceDetailViewModel"
              Title="Race details">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Team" Command="{Binding TeamCommand}"/>
+        <ToolbarItem Text="Compose team" Command="{Binding TeamCommand}"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
@@ -15,6 +15,7 @@
             <StackLayout HorizontalOptions="Center" Orientation="Vertical">
                 <Label Text="{Binding Name}"></Label>
                 <Label Text="{Binding Description}"></Label>
+                <Label Text="{Binding Status, StringFormat='Status: {0}'}"></Label>
             </StackLayout>
             <Label Text="Stages" HorizontalOptions="Center" FontSize="Subtitle" Padding="0,20,0,0" FontAttributes="Bold"></Label>
             <RefreshView Padding="20" x:DataType="vm:RaceDetailViewModel" Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}">

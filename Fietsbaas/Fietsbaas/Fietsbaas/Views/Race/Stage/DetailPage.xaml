@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:Fietsbaas.ViewModels"
+             xmlns:model="clr-namespace:Fietsbaas.Models"
              x:Class="Fietsbaas.Views.Race.Stage.DetailPage"
              x:DataType="viewmodels:StageDetailViewModel"
              Title="Stage details">
@@ -10,6 +11,50 @@
             <StackLayout HorizontalOptions="Center" Orientation="Vertical">
                 <Label Text="{Binding Name}"></Label>
                 <Label Text="{Binding Description}"></Label>
+                <Label Text="Results" FontSize="Large"></Label>
+                <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}">
+                    <ListView x:Name="ItemsListView"
+                        ItemsSource="{Binding Items}"
+                        SelectionMode="None">
+                        <ListView.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition  Width="1*" ></ColumnDefinition>
+                                    <ColumnDefinition  Width="1*" ></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="User" HorizontalOptions="Fill"   Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="1"></Label>
+                                <Label Text="Points" HorizontalOptions="Fill"  Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="1"></Label>
+                            </Grid>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="model:User">
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*" ></ColumnDefinition>
+                                            <ColumnDefinition Width="1*" ></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="1" Text="{Binding Email}" 
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                                        <Label Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="1" Text="{Binding Points}" 
+                                    LineBreakMode="NoWrap"
+                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    FontSize="13" />
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer 
+                                        NumberOfTapsRequired="1"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:StageDetailViewModel}}, Path=ItemTapped}"		
+                                        CommandParameter="{Binding .}">
+                                            </TapGestureRecognizer>
+                                        </Grid.GestureRecognizers>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </RefreshView>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

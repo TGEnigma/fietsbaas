@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 using Xamarin.Essentials;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace Fietsbaas.ViewModels
 {
@@ -59,8 +60,9 @@ namespace Fietsbaas.ViewModels
 
         protected async void HandleException( Exception e )
         {
-            Vibration.Vibrate(TimeSpan.FromMilliseconds(100));
+            Vibration.Vibrate(TimeSpan.FromMilliseconds(1000));
             await Shell.Current.DisplayAlert( "Error", $"An error occured:\n{e.Message}", "OK" );
+            Debug.WriteLine( e.ToString() );
         }
 
         #region INotifyPropertyChanged
