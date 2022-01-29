@@ -42,7 +42,6 @@ namespace Fietsbaas.ViewModels
         {
             Email = App.User.Email;
             Points = App.User.Points;
-            //ProfilePic = App.User.ProfilePicture;
             TakeProfilePicture = new Command( OnTakePictureClicked );
         }
 
@@ -53,13 +52,11 @@ namespace Fietsbaas.ViewModels
                 Title = "Please pick a photo"
             });
             var stream = await result.OpenReadAsync();
-            using (var fileStream = new FileStream(Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "profilepic.png"), FileMode.Create))
-            {
+            using (var fileStream = File.Open(Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "ProfilePic"), FileMode.CreateNew))
                 stream.CopyTo(fileStream);
-                string filename = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "profilepic.png");
-                ProfilePic = ImageSource.FromStream(() => fileStream);
-                App.User.ProfilePicture = filename;
-            } 
+                App.User.ProfilePicture = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "ProfilePic");
+            ProfilePic = App.User.ProfilePicture;
+            stream.Dispose(); 
         }
     }     
 }
