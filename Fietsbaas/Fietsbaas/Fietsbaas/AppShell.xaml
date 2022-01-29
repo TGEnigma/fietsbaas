@@ -92,8 +92,8 @@
     </FlyoutItem>
     <!--uncommented cyclists-->
     <!--<FlyoutItem Title="Cyclists" Icon="icon_feed.png">
-        <ShellContent ContentTemplate="{DataTemplate cyclistviews:IndexPage}" />-->
-    </FlyoutItem>
+        <ShellContent ContentTemplate="{DataTemplate cyclistviews:IndexPage}" />
+    </FlyoutItem>-->
     <FlyoutItem Title="Leaderboard" Icon="{local:ImageResource Fietsbaas.images.leaderboard-icon.png}">
         <ShellContent ContentTemplate="{DataTemplate views:LeaderboardPage}" />
     </FlyoutItem>
